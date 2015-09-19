@@ -9,6 +9,7 @@
     - Move into the repository (cd WDI11_Homework)
     - git remote add upstream https://github.com/ButenkoT/WDI11_Homework
     - git pull upstream master
+
 ###To Add your Homework
 
 * Push to your local version (the one that you forked)
