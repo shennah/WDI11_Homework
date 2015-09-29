@@ -1,0 +1,77 @@
+<html>
+<body>
+	Wk 1, Tuesday, Homework
+<script>
+
+
+//JS Homework 1
+//The Calculator
+//Part 1
+function squareNumber(num) {
+	var result = (num * num);
+	console.log("The result of squaring the number " + num + " is " + result);
+}
+squareNumber(3);
+squareNumber(125);
+squareNumber(56);
+
+
+function halfNumber(num) {
+	var result = (num / 2);
+	console.log("Half of " + num + " is " + result)
+}
+halfNumber(5);
+halfNumber(9832);
+halfNumber(420);
+
+
+function percentOf(num1, num2) {
+	var result = Math.round((num1 / num2) * 100);
+	console.log(num1 + " is " + result + "% of " + num2);
+}
+percentOf(2, 4);
+percentOf(50, 200);
+percentOf(27, 175);
+
+
+function areaOfCircle(radius) {
+	var area = (Math.PI * (radius * radius));
+	console.log("The area for a circle with the radius of " + radius + " is " + area);
+}
+areaOfCircle(2);
+areaOfCircle(8);
+areaOfCircle(45);
+
+
+//Part 2
+function number(num) {
+	var result = (num / 2);
+	var result2 = (result * result);
+	var result3 = (Math.PI * (result2 * result2));
+	var resultFinal = (result3/(result3 * result3));
+	console.log(resultFinal);
+}
+
+number(1);
+
+
+//JS Homework 2
+//DrEvil
+function DrEvil(amount){
+
+	if (amount < 1000000) {
+		console.log(amount + " dollars")
+	}
+
+	else if (amount >= 1000000) {
+		console.log(amount + " dollars '(pinky)'");
+	}
+}
+DrEvil(500);
+DrEvil(5000000);
+
+
+
+</script>
+</body>
+</html>
