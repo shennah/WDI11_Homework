@@ -5,6 +5,10 @@
 <script>
 
 /*********************************************************
+                        PART I
+*********************************************************/
+
+/*********************************************************
                     SquareNumber
 *********************************************************/
 function squareNumber (number) {
@@ -40,6 +44,48 @@ halfNumber(9, 5);
                     areaOfCircle
 *********************************************************/
 
+function areaOfCircle (radius) {
+
+  s = (Math.PI * (radius * radius)).toFixed(2);
+  console.log("The area is " + s);
+}
+areaOfCircle(99);
+
+/*********************************************************
+                        PART II
+*********************************************************/
+
+function funnyFunction (number) {
+
+  s = number / 2;
+  s1 = Math.sqrt(s);
+  s2 = (Math.PI * (s1 * s1)).toFixed(2);
+  s3 = s1 / s2 * 100;
+  console.log(s);
+  console.log(s1);
+  console.log(s2);
+  console.log(s3);
+}
+funnyFunction(20);
+
+/*********************************************************
+                        DrEvil
+*********************************************************/
+
+
+function mixUp(string1, string2) {
+  var str1 = string1;
+  var res1 = string1.substr(0, 2);
+  var str2 = string2;
+  var res2 = str2.substr(1, 2);
+  var res3 = str2.
+
+return res2 +
+
+  console.log(res1);
+  console.log(res2);
+}
+mixUp("dog", " dinne");
 
 
 </script>
