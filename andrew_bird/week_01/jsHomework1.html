@@ -1,0 +1,30 @@
+<html>
+	<script>
+		function squareNumber(num) {
+			var sqNum = num * num;
+			console.log("The result of squaring the number " + num + " is " + sqNum + ".");
+			return sqNum;
+		}
+		 function halfNumber(num) {
+		 		var halfNum = num / 2;
+			console.log("The result of halving the number " + num + " is " + halfNum + ".");
+			return halfNum;
+		 }
+		function percentOf(num1, num2) {
+			var perOf = ((num1/num2) * 100).toFixed(2);
+			console.log(num1 + " is " + perOf + "% of " + num2 + ".");
+			return perOf;
+		}
+		function areaOfCircle(radius) {
+			var area = (Math.PI * (radius * radius)).toFixed(2);
+			console.log("The area for a circle with radius " + radius + " is " + area +".");
+			return area;
+		}
+		function makeCircle(num) {
+			var halfNum = halfNumber(num);
+			var sqNum = squareNumber(halfNum);
+			var areaCirc = areaOfCircle(sqNum);
+			var areaPercent = percentOf(areaCirc, sqNum);
+		}
+	</script>
+</html>
