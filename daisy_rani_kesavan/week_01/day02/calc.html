@@ -1,0 +1,42 @@
+<html>
+<head>
+	Calculator
+</head>
+<script>
+function squareNumber(n)
+{
+var a=n*n;
+console.log("The result of squaring the number "+n+" is "+a);
+return a;
+}
+squareNumber(3);
+
+
+function halfNumber(num)
+{
+var b=num/2;
+console.log("Half of "+num+" is "+b);
+return b;
+}
+halfNumber(5);
+
+
+function percentOf(x,y)
+{
+var p=Math.round((x/y)*100);
+console.log(x+" is "+p+" percent of "+y);
+return p;
+}
+percentOf(40,30);
+
+
+function areaOfCircle(r)
+{
+var circ=(Math.PI *r*r).toFixed(2);
+console.log("The area for a circle with radius "+r+" is "+circ);
+return r;
+}
+areaOfCircle(2);
+
+</script>
+</html>
