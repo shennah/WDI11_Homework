@@ -1,0 +1,54 @@
+<html>
+<body>
+<script>
+
+var word=['F','O','X'];
+var guessed=['_','_','_'];
+console.log("You starts with the reward amount 0");
+
+function guessLetter(letter){
+
+   var goodguess=false;
+   var moreguess=false;
+   //var rewardAmount=10;
+
+   for(var i=0; i<word.length; i++){
+   	  if(word[i]==letter){
+   	  	guessed[i]=letter;
+   	  	goodguess=true;
+		}
+	  if(guessed[i]=='_'){
+        moreguess=true;
+	  }
+	}
+      
+	  if(goodguess){
+	  	console.log("You found a letter");
+	  	console.log(guessed.join(','));
+	  	//rewardAmount= rewardAmount + 20;
+	  	console.log("Your reward amount is " + rewardAmount);
+	  	 if(!moreguess){
+          console.log("You found all the letters. You won it.")
+
+	  	 }
+
+	  }
+	  else{
+	  	console.log("Its not a correct letter");
+	  	//rewardAmount = rewardAmount-5;
+	  	console.log("Your reward amount is " + rewardAmount);
+	  }
+   }
+
+guessLetter('A');
+guessLetter('B');
+guessLetter('B');
+guessLetter('D');
+guessLetter('B');
+guessLetter('O');
+guessLetter('X');
+guessLetter('F');
+
+</script>
+</body>
+</html>
