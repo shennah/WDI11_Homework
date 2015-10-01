@@ -35,30 +35,78 @@ var triangle = {
     sideA:3,
     sideB:4,
     sideC:4
+    //sideA:12,
+    //sideB:18,
+    //sideC:22
 };
 
 function isEquilateral (shape) {
-    if (shape.sideA === shape.sideB && shape.sideA === shape.sideC) {
-        return "It is equilateral.";
+    var result = false;
+    if (shape.sideA === shape.sideB && shape.sideA === shape.sideC && shape.sideB===shape.sideC) {
+        result = true;
+    } 
+    if (result) {
+        console.log("It is equilateral."); 
     } else {
-        return "It is not equilateral";
+        console.log("It is not equilateral.");
     }
+    return result;
 }
-console.log(isEquilateral(triangle));
 
 function isIsosceles(shape) {
+    var result = false;
     if(shape.sideA === shape.sideB || shape.sideA === shape.sideC || shape.sideB === shape.sideC) {
-        return "It is isosceles.";
-    } else {
-        return "It is not isosceles.";
+        result = true;
+    } 
+    if (result) {
+        console.log("It is isosceles.");
+    }else {
+        console.log("It is not isosceles.");
     }
+    return result;
 }
-console.log(isIsosceles(triangle));
 
+function calcTriangleArea(thisTriangle) {
+    var a = thisTriangle.sideA;
+    var b = thisTriangle.sideB;
+    var c = thisTriangle.sideC;
+    var p = (a+b+c) / 2;
+    var area = parseFloat(Math.sqrt(p*(p-a)*(p-b)*(p-c))).toFixed(2);
+    console.log("Triangle area is " + area);
+    return area;
+}
 
+function isObtuse(thisTriangle) {
+    var a = thisTriangle.sideA;
+    var b = thisTriangle.sideB;
+    var c = thisTriangle.sideC;
+    var maxSide = Math.max(a,b,c);
+    var result = false;
 
+    if (isEquilateral(thisTriangle)) {
+        // if a==b==c
+        result = false;
+    } else if(isIsosceles(triangle)) {
+       //if it is isosceles
+        if ((a===b && (a*a + b*b) < c*c) || (a===c && (a*a + c*c) < b*b)|| (b===c && (b*b + c*c) < a*a)) {
+        result=true;
+        } 
+    } else if ((a === maxSide && (b*b + c*c) < a*a) || (b === maxSide && (a*a + c*c) < b*b) || (c === maxSide && (b*b + a*a) < c*c)) {
+        //else find maxSide;
+        result = true;
+    }
+    if (result) {
+        console.log( "It is obtuse");
+    } else {
+        console.log( "It is not obtuse.");
+    }
+return result;
+}
 
-
+isEquilateral(triangle);
+isIsosceles(triangle);
+calcTriangleArea(triangle);
+isObtuse(triangle);
 
 
 
