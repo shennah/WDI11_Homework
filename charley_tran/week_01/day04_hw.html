@@ -1,0 +1,152 @@
+<html>
+<script>
+/*Part 1, Rectangle
+
+Given the following a rectangle object like the one below, write the following functions:
+
+isSquare - Returns whether the rectangle is a square or not
+area - Returns the area of the rectangle
+perimeter - Returns the perimeter of the rectangle
+var rectangle = {
+  length: 4,
+  width: 4
+};*/
+
+var rectangle = {
+	length : 4,
+	width : 4
+};
+
+var isSquare = function() {
+	if (rectangle.length = rectangle.width) {
+		return rectangle = 'square'
+	}
+}
+var area = function() {
+	return rectangle.length * rectangle.width
+}
+
+var perimeter = function () {
+	return 2 * (rectangle.length + rectangle.width)
+}
+
+//part 2 , triangle.
+
+var triangle = {
+  sideA: 3,
+  sideB: 4,
+  sideC: 4
+};
+
+var isEquilateral = function() {
+	if (triangle.sideA == triangle.sideB && triangle. sideA === triangle.sideC) {
+		return console.log('triangle is equilateral')
+	} else return console.log('triangle is not equilateral.')
+}
+
+var isIsosceles = function() {
+	if (triangle.sideA == triangle.sideB && triangle. sideA === triangle.sideC) {
+		return console.log('triangle is isosceles')
+	} else if (triangle.sideA == trianglesideB || triangle.sideB == triangle.sideC || triangle.sideC == triangle.sideA) {
+		return console.log('triangle is isosceles')
+	} else return console.log('triangle is not iscosceles')
+}
+
+var areaTriangle = function() {
+	var S = triangle.sideA + triangle.sideB + triangle.sideC;
+	return Math.sqrt(S*(S-triangle.sideA)*(S-triangle.sideB)*(S-triangle.sideC))
+}
+
+
+
+var isObtuse = function() {
+	if (triangle.sideA !== triangle.sideB && triangle.sideB !== triangle.sideC) {
+		return console.log ('triangle is obtuse')
+	} else {
+		console.log('triangle is not obtuse')
+	}
+}
+
+
+// Bank homework
+// 1 bank. bank as accounts
+// var bank = {
+// 	account 1 : 0
+// 	account 2 : 0
+// }
+
+var bank = {
+	test : 0,
+	charley : 100
+};
+
+
+for (var key in bank) {
+  console.log("obj." + key + " = " + bank[key]);
+}
+
+var bankBalance = function () {
+for (var key in bank) {
+	var a = 0;
+	a = a + bank[key] // value
+} return a
+}
+
+// ====== example of using loop for objects (NOT ARRAYS)
+// var students = [
+// 	{
+// 		name : 
+// 		surname :
+// 		job :
+// 	}, 
+// 	{
+// 		name : 
+// 		surname :
+// 		job :
+// 	}
+// ]
+
+// for (var i = 0 ; i < students.length; i ++) {
+// 	for (var key in students[i])
+// }
+
+
+
+var addAccount = function (accountName) {
+	return bank[accountName] = 0
+};
+
+var bankDep = function (accountName, depositAmt) {
+	bank[accountName] = bank[accountName] + depositAmt;
+	console.log ("you have just deposited $" + depositAmt);
+}
+
+var bankWith = function (accountName, withdrawAmt) {
+	if (bank[accountName] < withdrawAmt) {
+		return console.log ("Sorry you cannot withdraw you are too freaking poor")
+	} else {
+	bank[accountName] = bank[accountName] - withdrawAmt;
+	console.log ("You have just withdraw $" + withdrawAmt);
+}
+}
+
+var showBalance = function (accountName) {
+	return bank[accountName]
+}
+
+var bankTransfer = function (from, to, amt) {
+	if (bank[from] < amt) {
+		return console.log("go make some more money first you hobo");
+	} else {
+	bank[from] -= amt;
+	bank[to] += amt;
+	console.log ("You have just transferred $" + amt + " from account " + from + " to account " + to);
+}
+}
+
+
+
+
+
+</script>
+</html>
