@@ -16,18 +16,16 @@ function isSquare(shape) {
     }
 }
 
-console.log(isSquare(rectangle));
-
 function calcArea(shape) {
     return shape.length * shape.width;
 }
-console.log(calcArea(rectangle));
 
 function calcPerimeter(shape) {
-//    var result = shape.length + shape.width;
-//    return result * 2;
     return (parseInt(shape.length,10) + parseInt(shape.width,10)) * 2;
 }
+
+console.log(isSquare(rectangle));
+console.log(calcArea(rectangle));
 console.log(calcPerimeter(rectangle));
 
 //***triangle***
@@ -83,11 +81,9 @@ function isObtuse(thisTriangle) {
     var maxSide = Math.max(a,b,c);
     var result = false;
 
-    if (isEquilateral(thisTriangle)) {
-        // if a==b==c
+    if (isEquilateral(thisTriangle)) {  // if a==b==c
         result = false;
-    } else if(isIsosceles(triangle)) {
-       //if it is isosceles
+    } else if(isIsosceles(triangle)) {  //if it is isosceles
         if ((a===b && (a*a + b*b) < c*c) || (a===c && (a*a + c*c) < b*b)|| (b===c && (b*b + c*c) < a*a)) {
         result=true;
         } 
