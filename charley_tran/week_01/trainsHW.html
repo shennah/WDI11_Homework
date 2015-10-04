@@ -1,0 +1,107 @@
+<html>
+<script>
+//planTrip('N', 'Times Square', '6', '33rd')
+// console.log() shows output similar to this:
+// "Your must travel through the following stops on the N line: 34th, 28th, 23rd, Union Square."
+// "Change at Union Square."
+// "Your journey continues through the following stops: 23rd, 28th, 33rd."
+// "7 stops in total."
+
+
+// improvements I could have made. make the counting of the stops based on array length of the stations rather than between stop a and stop b 
+// is it possible to declare lineString1 and lineString2 locally into the planTrip function so it resets the array after each trip (no carryover of global data??) EDIT : YES it does work, will have to do it for count stops as well
+
+//=====================
+
+var lineN = ['times square', '34th', '28th.n', '23rd.n', 'union square', '8th.n'];
+var lineL = ['8th.l', '6th', 'union square', '3rd', '1st'];
+var line6 = ['grand central', '33rd', '28th.6', '23rd.6', 'union square', 'astor place'];
+
+// var nExchange = lineN[4];
+// var lExchange = lineL[2];
+// var Exchange6 = line6[4];
+
+var lineStations = [];      //line of stations
+// var lineString1 = [];      //line string 1 and line string 2 stores the strings from stop a to union and stop b to union
+// var lineString2 = [];
+var stringLineStation;    //converison of array to strings
+
+
+var line1;
+var line2;
+var stopA;
+var stopB;
+var stopC1; //this is changeover station 1
+var stopC2; //this is changeover station 2
+
+var changeStop = function(line1, line2) {  //this functiond defines a new stop for calculations (union square)
+	for (var i = 0; i <line1.length; i++) {
+			if (line1[i] === 'union square') {
+				stopC1 = line1[i];
+			}
+		}
+	for (var x = 0; x <line2.length; x++) {
+			if (line2[x] === 'union square') {
+			 	stopC2 = line2[x];
+			}
+}
+}
+//this function adds up the name of the stops to add to string.
+
+var lineString = function(line1, stopA, stopB) {
+	if (line1.indexOf(stopB) > line1.indexOf(stopA)) {
+	for (var i = line1.indexOf(stopA); i < line1.indexOf(stopB)-1; i ++) {
+		lineStations[i] = line1[i+1];
+	}
+	}
+	else if (line1.indexOf(stopA) > line1.indexOf(stopB)) { 
+		for (var i = line1.indexOf(stopA)-1; i > line1.indexOf(stopB); i --) {
+		lineStations[i-1] = line1[i];
+		}
+	} lineStations.reverse();
+}
+
+
+
+//this function will combine everything
+var planTrip = function (line1, stopA, line2, stopB) { 
+	if (line1 === line2) {  // this scenario only applies if you are travelling on the same line
+		lineString(line1, stopA, stopB);
+		stringLineStations = lineStations.toString();
+		console.log ("You must travel through the following stops:",stringLineStations)
+		console.log ("There are ", calcStops(line1, stopA, stopB), " in total.");
+	} 
+	else {
+		changeStop(line1, line2); 
+		var lineString1 = [];      //line string 1 and line string 2 stores the strings from stop a to union and stop b to union
+		var lineString2 = [];
+		var lengthLine1 = calcStops(line1, stopA, stopC1); 	
+		var lengthLine2 = calcStops(line2, stopB, stopC2);
+		var lineString1 = lineString(line1, stopA, stopC1);
+		lineString1 = lineStations.toString();
+		var lineString2 = lineString(line2, stopB, stopC2);
+		lineString2 = lineStations.toString();
+		console.log ("You must travel through", lineString1, " get off and change at Union Central then travel through ", lineString2);
+		console.log ("You must pass through ", lengthLine2 + lengthLine1, " stations.");
+		}
+}
+
+
+// this function calculates the amount of stops
+var calcStops = function (line1, stopA, stopB) {
+	var stops = line1.indexOf(stopA) - line1.indexOf(stopB);
+	if (stops < 0) {
+		stops = stops * -1;
+	} stops = stops -1;
+	return stops;
+}
+
+
+//line refers to what line
+//use lengths to determine how far
+// what if lengths are negative? Revert to positive.
+// var trip = function()
+
+
+</script>
+</html>
