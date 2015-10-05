@@ -1,0 +1,63 @@
+<html> 
+<body>
+
+
+//Tuesday 29th September
+<script>
+
+
+
+//function returns bigger number
+
+function greaterNum(number1, number2){
+	if (number1 > number2) {
+	console.log ("The greater number of " + number1  + " and " + number2 + " is " + number1);
+
+	} else {
+	console.log (number2);
+	}
+};
+
+greaterNum(2, 3);
+greaterNum(67, 8);
+
+function helloWorld(language) {
+	if (language === "es"){
+	console.log("Buenos dias!");
+	} else if (language === "de"){
+	console.log("Hello world on german");
+	} else if (language === "en"){
+	console.log("Hello world!")
+	} else {
+	console.log("Choose the language");
+	}
+}
+
+helloWorld("hello bro");
+helloWorld("es");
+helloWorld("en");
+
+function assignGrade(numScore) {
+	if (numScore === 1){
+	console.log("A");
+	} else if (numScore === 2){
+	console.log("B");
+	} else if (numScore === 3){
+	console.log("C");
+	} else if (numScore === 4) {
+	console.log("D");
+	} else {
+	console.log("F");
+	}
+}
+
+assignGrade(1);
+assignGrade(2);
+assignGrade(6);
+
+
+
+</script>
+
+</body>
+</html>
