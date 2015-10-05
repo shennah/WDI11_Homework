@@ -1,0 +1,65 @@
+<html>
+<head>
+	Subway program
+</head>
+<body>
+<script type="text/javascript">
+
+var N=['Times Square','34th','28th','23rd','Union Square', '8th'];
+var L=['8th','6th','Union Square','3rd','1st'];
+var six=['Grand Central','33rd','28th','23rd','Union Square','Astor'];
+
+function rev(line1, stop1, line2, stop2){
+	var start= line1.indexOf(stop1);
+	var end= line2.indexOf(stop2);
+	var center=line2.indexOf('Union Square');
+	var temp=line2.slice(end, center);
+
+	if(end<center){
+      console.log("Your travel continue through the line2 : " + temp.reverse());
+    }
+    else{
+      console.log("You must travel through the stops on line line2 : " + line2.slice(center+1, line2.length));
+    }
+}
+
+function planTrip(line1, stop1, line2, stop2){
+
+	if(line1===line2){
+        var start= line1.indexOf(stop1);
+        console.log("You must travel through the stops on line : " + (line1).slice(start+1, line1.length));
+        }
+    
+    if(stop1==='Union Square'){
+    	console.log("You can travel directly to line2 from here");
+    	rev(line1, stop1, line2, stop2); 
+        }
+
+	if(stop1!=='Union Square'){
+        start= line1.indexOf(stop1);
+        console.log("You must travel through the stops on line line1 : " + (line1).slice(start+1, line1.length-1));
+        console.log("Change at Union Square");
+		rev(line1, stop1, line2, stop2);
+		 }
+
+ // 	if(line1===N || line1===six && line2===L){		
+ //        start= line1.indexOf(stop1);
+ //        console.log("You must travel through the stops on line lin1 : " + (line1).slice(start+1, line1.length-1));
+	// 	console.log("Change at Union Square");
+	// 	rev(line1, stop1, line2, stop2);
+ //    }
+
+
+  //   if(line1===L || line1===six && line2===N){		
+  //       start= line1.indexOf(stop1);
+  //       console.log("You must travel through the stops on line lin1 : " + (line1).slice(start+1, line1.length-1));
+		// console.log("Change at Union Square");
+		// rev(line1, stop1, line2, stop2);
+  //   }
+
+}
+
+planTrip(six, 'Astor', N, '34th');
+</script>
+</body>
+</html>
