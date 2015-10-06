@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title></title>
+  </head>
+
+  <body>
+    <div class="main">
+    <form>
+      <table>
+        <tr>
+          <td>
+            <input id="getOnStation" name="getOnStation" placeHolder="From Station" value="Times Square">
+          </td>
+          <td>
+            <input id="getOnLine" name="getOnLine" placeHolder="Line" value="LN">
+          </td>
+          <td>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input id="getOffStation" name="getOffStation" placeHolder="To station" value="Grand Central">
+          </td>
+          <td>
+            <input id="getOffLine" name="getOffLine" placeHolder="Line" value="L6">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="myButton" onclick="selectorFunction()">
+                <p>
+                  Find My route!
+                </p>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+
+    </form>
+    <section id="result" class="main noshadow">
+    </section>
+
+      <!-- <input list="stations" name="getOn"> -->
+      <!-- <datalist id="list"> -->
+      <!-- <select name="this">
+        <option value="Number 1">blob</option>
+        <option value="Number 2">yarrob</option>
+      </select> -->
+      <!-- </datalist> -->
+      <!-- <input type="submit"> -->
+  </div>
+
+
+  <script src="main.js"></script>
+
+  </body>
+</html>

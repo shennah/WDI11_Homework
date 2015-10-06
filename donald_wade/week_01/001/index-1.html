@@ -1,0 +1,44 @@
+<!-- to be used with js-homework-1.js -->
+<!doctype html>
+<head>
+  <!-- <meta http-equiv="refresh" content="1" > -->
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="js-homework-1.js"></script>
+</head>
+  <body>
+    <div class="container">
+
+
+    <form class="myForm">
+      Your number to square: <br>
+      <input type = "number" name="num">
+      <input type = "button" onclick="squareNumber(num)" value="Enter">
+    </form>
+    <form>
+      Your new number: <br>
+      <input type = "number" name="num2">
+      <input type = "button" onclick="halfNumber(num2)" value="Enter">
+    </form>
+    <form>
+      Your first additional number: <br>
+      <input type = "number" name="num3"> <br>
+      Your second additional number: <br>
+      <input type = "number" name="num4">
+      <input type = "button" onclick="percentOf(num3, num4)" value="Enter">
+    </form>
+    <form>
+      Your radius: <br>
+      <input type = "number" name="radius">
+      <input type = "button" onclick="areaOfCircle(radius)" value="Enter">
+    </form>
+    <div id="square">
+    </div>
+    <div id="half">
+    </div>
+    <div id="percent">
+    </div>
+    <div id="area">
+    </div>
+    </div>
+  </body>
+</html>
