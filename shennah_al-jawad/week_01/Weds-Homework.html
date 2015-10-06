@@ -1,0 +1,50 @@
+<html>
+<body>
+<script>
+
+//The Word Guesser
+var word = ['D', 'O', 'G'];
+var guesses = ['_', '_', '_',];
+var counter = word.length;
+console.log(guesses);
+console.log("Let the games begin!")
+
+function guessLetter(l) {
+
+	var correctGuess = false;
+	var incorrectGuess = false;
+
+	for (var x = 0; x < word.length; x++) {
+		if (word[x] === l) {
+			guesses[x] = l;
+			correctGuess = true;
+			counter = counter + 1;
+			console.log(guesses)
+		}
+		else if (word[x] === '_') {
+			incorrectGuess = true;
+		}
+	}
+
+	if (correctGuess === true) {
+		console.log("You found a letter!");
+		if (counter === 3) {
+			console.log("Winner")
+		}
+	}
+
+	else {
+		console.log(guesses)
+		console.log("Try again!")
+	}
+}
+
+guessLetter('I')
+guessLetter('D')
+guessLetter('Q')
+guessLetter('O')
+guessLetter('G')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<html>
+<body>
+<script>
+
+// MTA Lab
+// Objectives:
+
+// Apply your knowledge of Javascript to solve a real world problem.
+// Get really good at array manipulation.
+// Activity
+
+// Create a program that models a simple subway system.
+
+// The program takes the line and stop that a user is getting on at and the line and stop that user is getting off at and prints the journey and the total number of stops for the trip in the console:
+
+// planTrip('N', 'Times Square', '6', '33rd'); // This is only a suggested function name and signature.
+
+// // console.log() shows output similar to this:
+// // "Your must travel through the following stops on the N line: 34th, 28th, 23rd, Union Square."
+// // "Change at Union Square."
+// // "Your journey continues through the following stops: 23rd, 28th, 33rd."
+// // "7 stops in total."
+// There are 3 subway lines:
+// The N line has the following stops: Times Square, 34th, 28th, 23rd, Union Square, and 8th
+// The L line has the following stops: 8th, 6th, Union Square, 3rd, and 1st
+// The 6 line has the following stops: Grand Central, 33rd, 28th, 23rd, Union Square, and Astor Place.
+// All 3 subway lines intersect at Union Square, but there are no other intersection points. (For example, this means the 28th stop on the N line is different than the 28th street stop on the 6 line, so you'll have to differentiate this when you name your stops in the arrays.)
+// Tell the user the number of stops AND the stops IN ORDER that they will pass through or change at.
+// Hints:
+
+// Work out how you would do it on paper first! Then start to explain that process in Javascript.
+// Get the program to work for a single line before trying to tackle multiple lines.
+// Don't worry about prompting the user for input. Hard code some values to get it working. You can use prompt() later to make it more interactive.
+// Consider diagramming the lines by sketching out the subway lines and their stops and intersection.
+// The key to the lab is finding the index positions of each stop. (hint: indexOf())
+// Make sure the stops that are the same for different lines have different names (i.e. 23rd on the N and on the 6 need to be differentiated)
+
+
+// Stations within Lines
+subway = {
+
+	lineN: ["Times Square", "34th", "28th N", "23rd N", "Union Square", "8th-N"],
+
+	lineL: ["8th L", "6th", "Union Square", "3rd", "1st"],
+
+	line6: ["Grand Central", "33rd", "28th 6", "23rd 6", "Union Square", "Astor Place"]
+}
+
+
+var planTrip = function(startLine, startStation, endLine, endStation) {
+
+	// total number of stops
+	var stops = 0;
+
+	// index of station in the array
+	var startingIndex;
+
+	// index of destination station
+	var destinationIndex;
+
+	var startingLine;
+
+	var destinationLine;
+
+	var stations = [];
+
+
+///////////////////// Start Line and Station //////////////////
+	// user input line N
+	if (startLine == "N") {
+		// variable startingLine is assigned Line N
+		startingLine = subway.lineN
+		console.log("the starting line has been set to N")
+		// looping through line N for starting station
+		for ( var i = 0; i < subway.lineN.length; i++ ) {
+
+			// checking users input against the current element in line N array
+			if (startStation === subway.lineN[i]) {
+				startingIndex = i;
+				console.log("the starting index has been set to " + i)
+			}
+		}
+	}
+
+	//user input line L
+	else if (startLine == "L") {
+		// variable startingLine is assigned Line L
+		startingLine = subway.lineL
+		console.log("the starting line has been set to L")
+		// looping through line L for starting station
+		for ( var i = 0; i < subway.lineL.length; i++ ) {
+
+			// checking users input against the current element in line L array
+			if (startStation === subway.lineL[i]) {
+				startingIndex = i;
+				console.log("the starting index has been set to " + i)
+			}
+		}
+	}
+
+	// user input line 6
+	else if (startLine == "6") {
+		// variable startingLine is assigned Line 6
+		startingLine = subway.line6
+		console.log("the starting line has been set to 6")
+		// looping through line 6 for starting station
+		for ( var i = 0; i < subway.line6.length; i++ ) {
+
+			// checking users input against the current element in line 6 array
+			if (startStation === subway.line6[i]) {
+				startingIndex = i;
+				console.log("the starting index has been set to " + i)
+			}
+		}
+	}
+
+
+//////////////////// End Line and Station //////////////////////
+	// user input line N
+	if (endLine == "N") {
+		// variable destinationLine is assigned Line N
+		destinationLine = subway.lineN
+		console.log("the destination line has been set to N")
+		// looping through line N for end station
+		for ( var i = 0; i < subway.lineN.length; i++ ) {
+
+			// checking users input against the current element in line N array
+			if (endStation === subway.lineN[i]) {
+				destinationIndex = i;
+				console.log("the destination index has been set to " + i)
+			}
+		}
+	}
+
+	//user input line L
+	else if (endLine == "L") {
+		// variable destinationLine is assigned Line L
+		destinationLine = subway.lineL
+		console.log("the destination line has been set to L")
+		// looping through line L for end station
+		for ( var i = 0; i < subway.lineL.length; i++ ) {
+
+			// checking users input against the current element in line L array
+			if (endStation === subway.lineL[i]) {
+				destinationIndex = i;
+				console.log("the destination index has been set to " + i)
+			}
+		}
+	}
+
+	// user input line 6
+	else if (endLine == "6") {
+		// variable destinationLine is assigned Line 6
+		destinationLine = subway.line6
+		console.log("the destination line has been set to 6")
+		// looping through line 6 for end station
+		for ( var i = 0; i < subway.line6.length; i++ ) {
+
+			// checking users input against the current element in line 6 array
+			if (endStation === subway.line6[i]) {
+				destinationIndex = i;
+				console.log("the destination index has been set to " + i)
+			}
+		}
+	}
+
+console.log("The starting station is " + startingLine[startingIndex])
+
+// checking if forwards or backwards. This is forwards.
+if (startingIndex < destinationIndex) {
+	
+	// Calculating the number of stops
+	stops = (destinationIndex - startingIndex);
+
+	// From starting station, loop through until destination station is reached.
+	for ( var i = startingIndex; i <= destinationIndex; i++ ) {
+
+		// pushing each station name to stations variable which is an array
+		stations.push(startingLine[i]);
+	}
+}
+else {
+	// Calculating the number of stops
+	stops = (startingIndex - destinationIndex);
+
+	// From starting station, loop through until destination station is reached.
+	for ( var i = startingIndex; i >= destinationIndex; i-- ) {
+
+		// pushing each station name to stations variable which is an array
+		stations.push(startingLine[i]);
+	}
+
+}
+
+console.log(stations);
+
+
+
+
+}
+
+
+</script>
+</body>
+</html>

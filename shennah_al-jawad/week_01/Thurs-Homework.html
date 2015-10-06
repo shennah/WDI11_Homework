@@ -1,0 +1,171 @@
+<html>
+<body>
+<script>
+
+// Geometry Function Lab
+// Part 1 - Rectangle
+var rectangle = {
+	length: 4,
+	width: 4
+};
+
+function isSquare(rectangle) {
+	if (rectangle.length === rectangle.width) {
+		console.log("This is a Square")
+	}
+	else {
+		console.log("This is not a Square")
+	}
+}
+
+function area(rectangle) {
+	console.log("The area is " + rectangle.length * rectangle.width)
+}
+
+function perimeter(rectangle) {
+	console.log("The perimeter is " + (rectangle.length * 2 + rectangle.width * 2));
+}
+
+
+// Part 2 - Triangle
+var triangle = {
+	sideA: 2,
+	sideB: 2,
+	sideC: 2
+};
+
+function isEquilateral(triangle) {
+	if (triangle.sideA === triangle.sideB && triangle.sideC) {
+		console.log("This is an Equilateral Triangle");
+	}
+	else {
+		console.log("This is not an Equilateral Triangle");
+	}
+}
+
+function isIsoceles(triangle) {
+	if (triangle.sideA === triangle.sideB && triangle.sideB === triangle.sideC && triangle.sideC === triangle.sideA) {
+		console.log("This is an Isoceles Triangle AND an Equilateral Triangle");
+	}
+	else if (triangle.sideA === triangle.sideB || triangle.sideB === triangle.sideC || triangle.sideC === triangle.sideA) {
+		console.log("This is an Isoceles Triangle");
+	}
+	else console.log("This is not an Isoceles Triangle")
+}
+
+function area(triangle) {
+	var s = ((triangle.sideA + triangle.sideB + triangle.sideC) / 2)
+	var area = Math.sqrt(s * (s - triangle.sideA) * (s - triangle.sideB) * (s - triangle.sideC));
+	console.log("The area is " + area);
+}
+
+function isObtuse(triangle) {
+	var pos1 = (Math.pow(triangle.sideA, 2) + Math.pow(triangle.sideB, 2)) < Math.pow(triangle.sideC, 2);
+	var pos2 = (Math.pow(triangle.sideB, 2) + Math.pow(triangle.sideC, 2)) < Math.pow(triangle.sideA, 2);
+	var pos3 = (Math.pow(triangle.sideC, 2) + Math.pow(triangle.sideA, 2)) < Math.pow(triangle.sideB, 2);
+	if (pos1 || pos2 || pos3) {
+		console.log("This is an Obtuse Triangle");
+	}
+	else console.log("This is not an Obtuse Triangle");
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+// JavaScript Bank
+
+
+var bank = [];
+
+
+var addAccount = function(accName, accBalance) {
+	bank.push( {name: accName, balance: accBalance} );
+	console.log("Account added for " + accName + " with an opening balance of $" + accBalance);
+};
+
+
+var sumOfBank = function() {
+	
+	var total = 0;
+
+	for ( var i = 0; i < bank.length; i++ ) {
+		total = total + bank[i].balance; 
+
+	}
+	console.log("The total amount of money in the bank is $" + total);
+};
+
+var withdrawFromAccount = function(accName, amount) {
+
+	var currentAccount;
+
+	for ( var i = 0; i < bank.length; i++ ) {
+		if ( accName === bank[i].name ) {
+			currentAccount = bank[i];
+		}
+	}
+
+	currentAccount.balance = currentAccount.balance - amount;
+	console.log("Withdrawal complete. Current balance is $" + currentAccount.balance);
+
+};
+
+var depositToAccount = function(accName, amount) {
+
+	var currentAccount;
+
+	for ( var i = 0; i < bank.length; i++ ) {
+		if ( accName === bank[i].name ) {
+			currentAccount = bank[i];
+		}
+	}
+
+	currentAccount.balance = currentAccount.balance + amount;
+	console.log("Deposit complete. Current balance is $" + currentAccount.balance);
+
+};
+
+var transfer = function(person1, person2, amountToTransfer) {
+	withdrawFromAccount(person1, amountToTransfer);
+	depositToAccount(person2, amountToTransfer);
+	console.log("Transferred $" + amountToTransfer + " from " + person1 + " to " + person2)
+};
+
+addAccount("Mike", 5000);
+addAccount("Eric", 250);
+addAccount("Shennah", 9500);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
