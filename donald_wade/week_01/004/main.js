@@ -207,7 +207,7 @@ function checkMultiple(station) { // identifies whether station is on more than 
 
 // changes Union Square entry to indicate change if change is required.
 function notSure(station) {
-  if (checkMultiple(station))
+  if (checkMultiple(station)) {
     changeAlert();
   }
 }
