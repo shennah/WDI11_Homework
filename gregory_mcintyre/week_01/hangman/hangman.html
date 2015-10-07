@@ -1,0 +1,111 @@
+<html>
+<body>
+<script>
+var hangmanStages = [
+`
+
+
+
+
+
+
+
+`,
+`
+|
+|
+|
+|
+|
+|
+|
+`,
+`
+|---------
+|
+|
+|
+|
+|
+|
+`,
+`
+|---------
+|    |
+|
+|
+|
+|
+|
+`,
+`
+|---------
+|    |
+|    O
+|
+|
+|
+|
+`,
+`
+|---------
+|    |
+|    O
+|    |
+|
+|
+|
+`,
+`
+|---------
+|    |
+|    O
+|    |-
+|
+|
+|
+`,
+`
+|---------
+|    |
+|    O
+|   -|-
+|
+|
+|
+`,
+`
+|---------
+|    |
+|    O
+|   -|-
+|     \\
+|
+|
+`,
+`
+|---------
+|    |
+|    O
+|   -|-
+|   / \\
+|
+|
+`,
+];
+
+var stage = 0;
+var delayMs = 1000;
+
+var drawHangman = function(){
+  console.log(hangmanStages[stage]);
+  stage++;
+  if (stage < hangmanStages.length) {
+    setTimeout(drawHangman, delayMs); // again!
+  }
+}
+setTimeout(drawHangman, delayMs);
+
+</script>
+</body>
+</html>
