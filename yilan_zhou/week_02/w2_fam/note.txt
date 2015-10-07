@@ -1,0 +1,44 @@
++++++ al.html ++++++
+Ada Lovelace
+
+biography
+Born: 10/10/1815
+Death: 27/11/1852
+Place of Birth: London, UK
+Nickname: Enchantress of Numbers
+Fact
+- Her mentor Charles Babbage is know as the father of the computer and invented the difference engine.
+- From her work, Ada is often considered to be the first computer programmer. She introduced the concept of looping.
+- Her contributions to the field of computer science were not discovered until the 1950s.
+
++++++  at.html  ++++++
+name: Alan Turing
+
+biography
+Born: 23/06/1912
+Death: 7/6/1954
+Place of Birth: London, UK
+ 
+Fact
+- The central concept of the modern computer was based on Turning’s paper
+- His research is acknowledged as the foundation of research in artificial intelligence.
+- In 1999, Time magazine named him one of its "100 Most Important People of the 20th century,"
+
+
++++++   jvn.html  ++++++
+name: John von Neumann
+
+biography
+Born: 28/12/1903
+Death: 8/2/1957
+Place of Birth: Budapest, Austria-Hungary 
+Nickname: 
+Fact
+- Von Neumann’s mathematical analysis of the structure of self-replication preceded the discovery of the structure of DNA.
+- He wrote 150 published papers in his life, 60 in pure mathematics, 20 in physics and 60 in applied mathematics.
+
+
+source:
+http://www.biography.com/people/ada-lovelace-20825323#personal-life
+http://www.biography.com/people/alan-turing-9512017#early-life
+https://en.wikipedia.org/wiki/John_von_Neumann
