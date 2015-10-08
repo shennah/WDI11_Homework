@@ -1,0 +1,165 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	font-family: "Raleway-Light", helvetica, "sans-serif";
+}
+
+#wrapper {
+	width: 1000px;
+	margin: auto;
+}
+
+main {
+	margin: auto;
+}
+
+main img{
+	border-radius: 100%;
+	margin-left: 20px;
+	margin-top: 40px;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+main img:hover {
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+	transition: all 0.7s ease;
+}
+
+/* Google Font */
+@font-face {
+  font-family: 'Raleway-Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(https://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FAriQzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+header {
+	text-align: center;
+	margin-top: 60px;
+	font-size: 2.5em;
+	font-family: Quicksand, "Raleway-Light", helvetica, "sans-serif"; 
+}
+
+
+header a {
+	text-decoration: none;
+	color: black;
+}
+
+h1 {
+	font-weight: normal;
+	background-color: #92A9AF;
+	color: white;
+	font-size: 25px;
+	padding-left: 60px;
+}
+
+h2 {
+	text-align: center;
+}
+
+main ul {
+	margin-top: 25px;
+	margin-left: 70px;
+}
+
+main ul li {
+	list-style-type: none;
+	display: inline-block;
+	font-size: 1.2em;
+}
+
+main ul li:nth-child(1) {
+	margin-right: 210px;
+}
+
+main ul li:nth-child(2) {
+	margin-right: 210px;
+}
+
+nav {
+	background-color: #92A9AF;
+	width: 1000px;
+	margin: auto;
+}
+
+nav li {
+	list-style-type: none;
+	font-size: 25px;
+	text-align: center;
+	display: inline;
+	margin-right: 50px;
+	margin-left: 45px;
+}
+
+nav a {
+	text-decoration: none;
+	color: white;
+}
+
+nav a:hover {
+	color: #415069;
+}
+
+#current-page {
+	color: #415069;
+}
+
+.blurb {
+	width: 300px;
+	float: left;
+}
+
+.blurb img {
+	border-radius: 100%;
+}
+
+.blurb p {
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+}
+/*////////////////// */
+
+.column1 {
+	width: 300px;
+	float: left;
+}
+
+.column1 p {
+	text-align: justify;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.column2 {
+	width: 650px;
+	float: right;
+	text-align: justify;
+	padding-top: 50px;
+}
+
+
+#googleMap {
+	margin: auto;
+	border: 3px solid #514a48;
+
+
+
+
+
+
+
+
+
+
+

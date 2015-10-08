@@ -1,0 +1,161 @@
+
+/* Background Flash */
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #EA6045;
+  -webkit-animation: pulse 0.5s infinite alternate;
+  positon: absolute;
+}
+
+@-webkit-keyframes pulse {
+  0% {background-color: #4CFF00;}
+  25% {background-color: #FF0DCC;}
+  50% {background-color: #00FFFF;}
+  75% {background-color: #A774FF;}
+  100% {background-color: #FFFF00;}
+}
+
+/* Title Flash */
+
+
+@keyframes blink {  
+    0% { color: white; }
+    100% { color: black; }
+}
+@-webkit-keyframes blink {
+    0% { color: white; }
+    100% { color: black; }
+}
+ h1 {
+ 	font-family: "comic sans MS";
+ 	font-size: 70px;
+ 	position: absolute;
+ 	margin-left: 50px;
+ }
+
+.blink {
+    -webkit-animation: blink 0.2s linear infinite;
+    -moz-animation: blink 0.2s linear infinite;
+    animation: blink 0.2s linear infinite;
+    	/* Safari */
+	-webkit-transform: rotate(-30deg);
+
+	/* Firefox */
+	-moz-transform: rotate(-30deg);
+
+	/* IE */
+	-ms-transform: rotate(-30deg);
+
+	/* Opera */
+	-o-transform: rotate(-30deg);
+} 
+.blink:nth-child(1) {
+    -webkit-animation: blink 0.2s linear infinite;
+    -moz-animation: blink 0.2s linear infinite;
+    animation: blink 0.2s linear infinite;
+    	/* Safari */
+	-webkit-transform: rotate(30deg);
+
+	/* Firefox */
+	-moz-transform: rotate(30deg);
+
+	/* IE */
+	-ms-transform: rotate(30deg);
+
+	/* Opera */
+	-o-transform: rotate(30deg);
+
+	margin-left: 1000px;
+} 
+
+.srsbsns {
+	-webkit-animation: blink 0.2s linear infinite;
+    -moz-animation: blink 0.2s linear infinite;
+    animation: blink 0.2s linear infinite;
+    margin-left: 550px;
+    font-size: 40px;
+    margin-top: 60px;
+}
+
+
+ img {
+ 	margin-top: 300px;
+ 	position: absolute;
+ }
+
+ .cat {
+ 	margin-top: 5px;
+ 	float: right;
+ 	margin-left: 750px;
+ }
+
+
+ .ie {
+ 	margin-left: 1100px;
+ 	width: 48px;
+ 	height: 48px;
+ 	transition: all 1s ease;
+ 	position: absolute;
+ }
+
+ .ie:hover {
+ 	-webkit-transform: rotate(720deg);
+ }
+
+ .com {
+ 	margin-left: 1100px;
+ 	margin-top: 200px;
+ 	width: 48px;
+ 	height: 48px;
+ 	transition: all 1s ease;
+ 	position: absolute;
+ }
+
+ .com:hover {
+ 	-webkit-transform: rotate(720deg);
+
+ }
+
+ .trash {
+ 	margin-left: 1100px;
+ 	margin-top: 400px;
+ 	width: 48px;
+ 	height: 48px;
+ 	transition: all 1s ease;
+ 	position: absolute;
+ }
+
+ .trash:hover {
+ 	-webkit-transform: rotate(720deg);
+
+ }
+
+ .srsmok {
+ 	width: 600px;
+ 	margin: auto;
+ }
+
+ .nakey {
+ 	positon: absolute;
+ 	margin-left: 650px;
+ 	margin-top: 120px;
+ 	transition: all 1s ease;
+ }
+
+ .nakey:hover {
+ 	height: 222px;
+ 	width: 200px;
+ 	-webkit-transform: rotate(720deg);
+ }
+
+.pyramid {
+	margin-left: 500px;
+	position: absolute;
+	margin-top: 200px;
+}
+
+audio {
+	display: none;
+}
