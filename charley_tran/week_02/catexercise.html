@@ -20,12 +20,12 @@ var x = 0 //defining starting position
 function catWalk() { //for cat walking fowards
 	catGif.style.left = x + "px";
 	x += 10;
-	if (catGif.style.left == "500px") { //once it hits halfway, stops the movement, chaneges picture.
+	if (catGif.style.left == window.innerWidth/2 + "px") { //once it hits halfway, stops the movement, chaneges picture.
 		clearInterval(catForward);
 		catGif.src = "https://media.giphy.com/media/11i7RuOORxP7iM/giphy.gif"
 		setTimeout(reset, 1000); //this reinitiates the forward movement.
 	}
-	if (catGif.style.left == "1000px") { //this triggers the return
+	if (catGif.style.left == window.innerWidth + "px") { //this triggers the return
 		clearInterval(catForward);
 		catBackwards = setInterval(catBack, 50);
 	}
@@ -34,7 +34,7 @@ function catWalk() { //for cat walking fowards
 function catBack() { //for cat walking backwards
 	catGif.style.left = x + "px";
 	x -=10;
-		if (catGif.style.left == "500px") {
+		if (catGif.style.left == window.innerWidth/2+"px") {
 		clearInterval(catBackwards);
 		catGif.src = "https://media.giphy.com/media/11i7RuOORxP7iM/giphy.gif"
 		setTimeout(resetBack, 1000);
