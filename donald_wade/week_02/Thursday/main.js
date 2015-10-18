@@ -1,29 +1,43 @@
+var $blob = $("img");
 
-
-var catGif = document.getElementsByTagName("img")[0];
-
-catGif.style.left = 0;
-
-
-function forwardThenBackWards() {
-
-}
-// setInterval(catWalkBackwards, 50);
-
-
-
+setInterval(infiniteWalk, 50);
 var left = 0;
-
-function infiniteCatWalk() {
-  catGif.style.left = left + 'px';
-  console.log(catGif.style.left);
+$blob.css("left", left);
+function infiniteWalk() {
+  var $blob = $("img");
+  var widthOfGif = 296;
+  $blob.css("left", left)
   left += 10;
-  var numericalPosition = parseInt(catGif.style.left);
-  console.log(numericalPosition);
-  if (numericalPosition >= window.innerWidth - 296) {
-    left = 0;
+  var numPos = parseInt($blob.css("left"));
+  if (numPos >= window.innerWidth - widthOfGif) {
+    $blob.class("cat");
+    setInterval(goBackwards, 100);
+
   }
 }
+
+
+
+
+function goBackwards() {
+  left -= 10;
+}
+
+
+
+
+
+
+// setInterval(catWalkBackwards, 50);
+
+// var left = 0;
+// function infiniteCatWalk() {
+//   $catGif.("left") = left + 'px';
+//   console.log($catGif);
+// }
+
+
+
 
 // setInterval(FWBW, 50);
 
@@ -95,7 +109,7 @@ function catWalkBackwards() {
 }
 
 
-setInterval(FWBW, 100);
+// setInterval(FWBW, 100);
 
 var imageOfCat = document.getElementsByTagName("img")[0];
 
