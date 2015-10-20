@@ -3,7 +3,6 @@
 https://gist.github.com/wofockham/2752aa06121df7f3024c
 Calculator
 Explanation
-
 You will be building a calculator. A calculator can perform multiple arithmetic operations. Your function should allow the user to choose which operation is expected, enter in the values to perform the operation on, and ultimately view the result.
 Specification:
 
@@ -24,8 +23,6 @@ Phase 3
 
 User should be given a menu of Calculator functionality
 User should be able to choose intended functionality
-
-
 
 def calculator(operator)
 	puts "Inter the first value"
@@ -88,4 +85,3 @@ while isRunning
 	end
 	puts "#{operator} result is #{result}"
 end
-
