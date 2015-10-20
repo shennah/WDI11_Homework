@@ -27,25 +27,18 @@ line_6 = {name: "Line 6",
 	stops: ['Grand Central', '33rd', '28th', '23rd', 'Union Square','Astor Place']}
 #
 def travel_a_line(line, start, finish)
-	trip = ""
 	start_i =  line[:stops].index(start)
 	finish_i = line[:stops].index(finish)
-
 
 	inv_s = line[:stops].length - start_i -1
 	inv_f = line[:stops].length - finish_i -1
 
 	if start_i < finish_i
-		p line[:stops][start_i.. finish_i]
+		return line[:stops][start_i.. finish_i]
 	else
 		rev = line[:stops].reverse
-		#p rev#[start_i.. finish_i]
-		p rev[inv_s.. inv_f]
+		return rev[inv_s.. inv_f]
 	end	
-
-
-
-
 end
 
 def travel_to_union(line, start)
@@ -64,26 +57,22 @@ def plan_trip(start_line, start, finish_line, finish)
 		result = "To travel from #{start} to #{finish}, go through stations: "
 		result << stops.join(", ")
 		result << ". You do not need to change lines on this trip"
-		p result
 	else
-		stops = travel_to_union(start_line, start)
-		stops.pop
-		result = "To travel from #{start} to #{finish}, go through stations: "
-		result << stops.join(", ")
-		result << ". Change at Union Square to the #{finish_line[:name]}. Then go through: "
-		stops = travel_from_union(finish_line, finish)
-		result << stops.join(", ")
+			stops = travel_to_union(start_line, start)
+			stops.pop
+			result = "To travel from #{start} to #{finish}, go through stations: "
+			result << stops.join(", ")
+			result << ". Change at Union Square to the #{finish_line[:name]}. Then go through: "
+			stops = travel_from_union(finish_line, finish)
+			result << stops.join(", ")
 	end
-	puts "-"*20
-	# p "To travel from #{start} to #{finish}, go through stations:"
-	# p "stops are"
-	# p stops.join(" ")
-	p result
+	print result
+	print "\n"
 end	
 
 plan_trip(line_L, "1st", line_N, "Times Square")
 #plan_trip(line_N, "34th", line_N, "8th")
-# puts plan_trip(line_6, "Grand Central", line_N, "Times Square")
-# puts plan_trip(line_L, "Union Square", line_N, "Times Square")
+ #puts plan_trip(line_6, "Grand Central", line_N, "Times Square")
+ #puts plan_trip(line_L, "Union Square", line_N, "Times Square")
 
 
