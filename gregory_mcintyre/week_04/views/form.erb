@@ -1,0 +1,11 @@
+<p>Please type in a title:</p>
+
+<form>
+	<input type="text" name="title"></input>
+	<input type="submit"></input>
+</form>
+
+<% if @title != nil  %>
+	<p>The result is:</p>
+	<%= @title %>
+<% end %>
