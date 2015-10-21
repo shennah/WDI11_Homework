@@ -1,0 +1,15 @@
+<% content_for :search_box do %>
+  <div class="search_box">
+    <p>
+      Poster images from your favourite movies
+    </p>
+    <form>
+    <input type="text" name="your_search" placeholder="Enter your search here" autocomplete="off" class="type_box"></input>
+      <input type="submit" value="Great! Now get me my posters!" class="button" id="my_button"></input>
+    </form>
+  </div>
+<% end %>
+
+<% content_for :images do %>
+  <%= @image_url %>
+<% end %>
