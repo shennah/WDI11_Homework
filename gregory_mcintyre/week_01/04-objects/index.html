@@ -1,0 +1,71 @@
+<html>
+<body>
+<script>
+
+console.log("hello objects");
+
+// Types of variables you've used so far:
+//
+// var x = 1;
+// var name = "Eric";
+// var guessLetter = function() {}
+// var student = ["Eric", 25];
+
+// Objects look like this:
+
+var student = {
+  name: "Eric",
+  age: 25,
+  greet: function() {
+    console.log("Hello!");
+  }
+}
+console.log(student);
+
+// We looped through arrays like this:
+
+var a = [1, 2, 3];
+for (var i = 0; i < a.length; i++) {
+  console.log(a[i]);
+}
+
+// We can loop through objects too:
+
+for (var key in student) {
+  console.log(key, student[key]);
+}
+
+// We can remove items from an object:
+
+delete student.greet;
+console.log(student);
+
+// Equality is tricky!
+
+var fruit1 = { name: "apple" };
+var fruit2 = { name: "apple" }; // a copy of the first object
+console.log(fruit1 == fruit2); // false
+console.log(fruit1 === fruit2); // false
+
+var fruit1 = { name: "apple" };
+var fruit2 = fruit1; // exactly the same object in memory
+console.log(fruit1 == fruit2); // true
+console.log(fruit1 === fruit2); // true
+
+// Object keys are actually strings
+
+var dictionary = {
+  aardvark: "Animal with large pretruding instrument"
+}
+console.log(dictionary["aardvark"]);
+
+// Sometimes objects are passed as a way of doing a bunch of optional arguments:
+
+// element.setStyle({
+//   "background-color": "red",
+//   "margin": "20px"
+// });
+
+</script>
+</body>
+</html>

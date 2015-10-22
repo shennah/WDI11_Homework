@@ -1,5 +1,4 @@
-var s = "fantastic"; //word to be guessed
-var w=s.split('');
+var w="fantastic".split(''); //word to be guessed
 var guessedW=[];
 var userGuess = "abcdefghijklmnopqrstuvwxyz".split('');
 var reward = 0; //reward balance

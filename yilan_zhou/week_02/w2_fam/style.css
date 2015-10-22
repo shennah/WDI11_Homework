@@ -1,0 +1,60 @@
+
+
+h1, h2, h3, p,a {
+	font-family: 'Titillium Web', sans-serif;
+	margin-left: 20px;
+}
+
+h1 { 
+	font-size: 32px;
+	}
+h2 { 
+	font-size: 25px;
+	}
+h3 { 
+	font-size: 18px;
+	}	
+p {
+	font-size: 16px;
+    }
+a {
+	font-size: 16px;	
+	color:darkblue;
+}
+
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:active {text-decoration: underline;}
+a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+}
+img {
+	margin: 0px auto;
+	border:4px double gray;
+	float: right;
+
+}
+ul { 
+	font-family: 'Titillium Web', sans-serif;
+	display: inline;
+	margin: 0px;
+}
+.header {
+	width:600px;
+	height:100px;
+	padding: 0.5em 10%;
+	vertical-align: middle;
+}
+.left {
+	width:15%;
+	height: 800px;
+	float:left;
+	text-align: left;
+}
+.main {
+	width:71%;
+	height: 800px;
+	float: left;
+}
+

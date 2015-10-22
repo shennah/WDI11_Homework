@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FCS Fansite</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="famous-developers.css">
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Quicksand|Raleway|Poiret+One' rel='stylesheet' type='text/css'>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+<body>
+
+	<header><a href="index.html">The Ultimate Famous Computer Scientist Fansite</a></header>
+	
+	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="ada-lovelace.html">Bio</a></li>
+			<li><a href="ada-lovelace-origins.html" id="current-page">Origins</a></li>
+			<li><a href="ada-lovelace-fun-facts.html">Fun Facts</a></li>
+			<li><a href="ada-lovelace-quotes.html">Quotes</a></li>
+		</ul>
+	</nav>
+
+<div id="wrapper">
+<section class="column1">
+
+	<h2>Origins</h2>
+
+	<p>Lovelace was born 10 December 1815, in London, England, as the only legitimate child of the poet George, Lord Byron and his wife Anne Isabella Noel</p>
+	<p>Byron separated from his wife a month after Ada was born and left England forever four months later, eventually dying of disease in the Greek War of Independence when Ada was eight years old. Ada's mother remained bitter towards Lord Byron and promoted Ada's interest in mathematics and logic in an effort to prevent her from developing what she saw as the insanity seen in her father, but Ada remained interested in him despite this (and was, upon her eventual death, buried next to him at her request).</p>
+
+</section>
+<section class="column2">
+
+	<div id="googleMap" style="width:600px;height:380px;"></div>
+
+</section>
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+  <body>
+    <script>
+
+console.log("hello constructors");
+
+// create an object by just declaring it
+
+var person = {
+  name: "Greg",
+  greet: function() {
+    console.log("hello", this.name);
+  }
+};
+
+// tuck that away inside a function
+
+function createPerson(name) {
+  return {
+    name: name,
+    greet: function() {
+      console.log("hello", this.name);
+    }
+  };
+}
+
+// we can re-use it to quickly create objects that all behave the same
+
+var p1 = createPerson("Greg");
+var p2 = createPerson("Tanya");
+
+
+// here is another way to create objects that all behave the same way: constructor functions
+
+var Point = function(x, y) {
+  console.log(this);
+  this.x = x;
+  this.y = y;
+  console.log(this);
+};
+
+Point(1, 2); // do not call this function like this :(
+var p = new Point(1, 2); // call it like this :)
+
+// we can add additional functions to all objects created in this way:
+
+Point.prototype.dist = function() {
+  return Math.sqrt(this.x * this.x
+      + this.y * this.y);
+};
+console.log(p.dist());
+
+// Equality is still tricky, just like normal objects
+
+var d = new Point(1, 2);
+console.log(p == d); // false
+console.log(p === d); // false
+
+// the equality situation is very similar to this:
+
+var p = {
+  x: 1,
+  y: 2,
+  dist: function(){}
+}
+
+var d = {
+  x: 1,
+  y: 2,
+  dist: function(){}
+}
+console.log(p === d);
+
+    </script>
+  </body>
+</html>

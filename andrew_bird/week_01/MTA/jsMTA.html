@@ -1,0 +1,344 @@
+<html>
+<head>
+<link href="mystyle.css" rel="stylesheet">
+
+</head>
+	<body onload = "drawLines()"> 
+	<header>
+
+		<h3>Trip Planner</h3>
+	</header>
+	<div>
+
+		<p id = "firstPara">
+			Select a station to Start your trip from:
+	
+			<ul>
+				<li>N Line:  </li>
+				<li><button onclick="stationSelect(lineN, 'Times Square')">Times Square</button></li>
+				<li><button onclick="stationSelect(lineN, '34th')">34th</button></li>
+				<li><button onclick="stationSelect(lineN, '28th')">28th</button></li>
+				<li><button onclick="stationSelect(lineN, '23rd')">23rd</button></li>
+				<li><button onclick="stationSelect(lineN, 'Union Square')">Union Square</button></li>
+				<li><button onclick="stationSelect(lineN, '8th')">8th</button></li>
+			</ul>
+		
+		
+			<ul>
+				<li>L Line:  </li>
+				<li><button onclick="stationSelect(lineL, '8th')">8th</button></li>
+				<li><button onclick="stationSelect(lineL, '6th')">6th</button></li>
+				<li><button onclick="stationSelect(lineL, 'Union Square')">Union Square</button></li>
+				<li><button onclick="stationSelect(lineL, '3rd')">3rd</button></li>
+				<li><button onclick="stationSelect(lineL, '1st')">1st</button></li>
+				
+			</ul>
+		
+		
+			<ul>
+				<li>6 Line:  </li>
+				<li><button onclick="stationSelect(line6, 'Grand Central')">Grand Central</button></li>
+				<li><button onclick="stationSelect(line6, '33rd')">33rd</button></li>
+				<li><button onclick="stationSelect(line6, '28th')">28th</button></li>
+				<li><button onclick="stationSelect(line6, '23rd')">23rd</button></li>
+				<li><button onclick="stationSelect(line6, 'Union Square')">Union Square</button></li>
+				<li><button onclick="stationSelect(line6, 'Astor Place')">Astor Place</button></li>
+			</ul>
+		</p>
+	</div>
+	<div>
+		<p id = "secondPara">
+			Select a Desination:
+
+			<ul>
+				<li>N Line:  </li>
+				<li><button onclick="stationSelect2(lineN, 'Times Square')">Times Square</button></li>
+				<li><button onclick="stationSelect2(lineN, '34th')">34th</button></li>
+				<li><button onclick="stationSelect2(lineN, '28th')">28th</button></li>
+				<li><button onclick="stationSelect2(lineN, '23rd')">23rd</button></li>
+				<li><button onclick="stationSelect2(lineN, 'Union Square')">Union Square</button></li>
+				<li><button onclick="stationSelect2(lineN, '8th')">8th</button></li>
+			</ul>
+		
+		
+			<ul>
+				<li>L Line:  </li>
+				<li><button onclick="stationSelect2(lineL, '8th')">8th</button></li>
+				<li><button onclick="stationSelect2(lineL, '6th')">6th</button></li>
+				<li><button onclick="stationSelect2(lineL, 'Union Square')">Union Square</button></li>
+				<li><button onclick="stationSelect2(lineL, '3rd')">3rd</button></li>
+				<li><button onclick="stationSelect2(lineL, '1st')">1st</button></li>
+				
+			</ul>
+		
+		
+			<ul>
+				<li>6 Line:  </li>
+				<li><button onclick="stationSelect2(line6, 'Grand Central')">Grand Central</button></li>
+				<li><button onclick="stationSelect2(line6, '33rd')">33rd</button></li>
+				<li><button onclick="stationSelect2(line6, '28th')">28th</button></li>
+				<li><button onclick="stationSelect2(line6, '23rd')">23rd</button></li>
+				<li><button onclick="stationSelect2(line6, 'Union Square')">Union Square</button></li>
+				<li><button onclick="stationSelect2(line6, 'Astor Place')">Astor Place</button></li>
+			</ul>
+		</p>
+
+
+	</div>
+	<div id = "resultText">
+	</div>
+	<div >
+
+		<canvas id = "drawLines" height = "500" width = "800">
+			<p>Canvas not supported!</p> 
+		</canvas>
+	</div>
+<script>
+// Create Line objects. yposition is how far down the page they will be and offS is to move them right beacuse Union Square must match up
+var lineN = {
+	name: 'N Line',
+	stations: ['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'],
+	yposition: 50,
+	color: 'red',
+	offS: 0
+	};
+var lineL = {
+	name: 'L Line',
+	stations: ['8th', '6th', 'Union Square', '3rd', '1st'],
+	yposition: 150,
+	color: 'green',
+	offS: 200
+	};
+var line6 = {
+	name: '6 Line',
+	stations: ['Grand Central', '33rd', '28th', '23rd', 'Union Square', 'Astor Place'],
+	yposition: 250,
+	color: 'blue',
+	offS: 0
+	};
+
+// travelAnyLine calculates a trip down one line and return an array of the stops traveled through
+var travelAnyLine = function(line, board, destination) {
+	console.log("line:" + line + "");
+	console.log("board:" + board + "");
+	console.log("destination: " + destination);
+	console.log(line.stations);
+
+	numBoard = line.stations.indexOf(board);
+	numDestination = line.stations.indexOf(destination);
+	var stopNames = [];
+		if (numBoard < numDestination) {
+			for(i = numBoard; i <= numDestination; i++){
+				stopNames.push(line.stations[i]);
+			}
+		} else {
+			for(i = numBoard; i >= numDestination; i--) {
+				stopNames.push(line.stations[i]);
+			}		
+	}
+	return stopNames;
+}
+// calculates a trip to Union Square as part of a multi-line trip
+var gotoUnion = function(line, station) {
+	var stopsToUnion = travelAnyLine(line, station, 'Union Square');
+	console.log("change at Union Square");
+	return stopsToUnion;
+}
+// calculates a trip from Union Square as part of a multi-line trip
+var fromUnion = function(line, station) {
+	var stopsAfterUnion = travelAnyLine(line, 'Union Square',station );
+			
+	return stopsAfterUnion;
+}
+// if the trip is on one line, use travelAnyLine to calculate it. If the trip changes lines, use gotoUnion and fromUnion to calculate it.
+var planTrip = function(startLine, startStation, finishLine, finishStation) {
+	console.log("planning trip: ''''" + startLine + startStation+ finishLine+ finishStation)
+	var trip1 = [];
+	var trip2 = [];
+	var tripText = '';
+	if(startLine === finishLine) {
+		trip1 = travelAnyLine(startLine, startStation, finishStation);
+		tripText = "You dont need to change lines for this trip." + " Your trip goes through " + trip1 + ". A total of " + trip1.length + " stops";
+
+		drawTrip(startLine, trip1, "yellow", "yellow");
+	} else {
+		trip1 = gotoUnion(startLine, startStation);
+
+		trip2 = fromUnion(finishLine, finishStation);
+
+		tripText = 'To get from ' + startStation + " to " + finishStation + ' You must travel through the following stops on the ' + startLine.name + ' : ' + trip1 +'. Then change at Union to the ' + finishLine.name + ' and go through stations ' + trip2 +' Total number of stops: ' + (trip1.length -1 + trip2.length -1);
+
+			drawTrip(startLine, trip1, "yellow", "yellow");
+
+			drawTrip(finishLine, trip2, "yellow", "yellow");
+		//	console.log(trip2);
+			colorUnion(startLine, finishLine);
+	}
+	return tripText;
+}
+// ----------------------------------------------------------------
+var firstLineSelection;
+var secondLineSelection;
+var firstStationSelection;
+var secondStationSelection;
+//	get input from the buttons and set start station
+			function stationSelect(lineChoice, stationChoice){
+				firstLineSelection = lineChoice;
+				firstStationSelection = stationChoice;
+				console.log(firstLineSelection, firstStationSelection);
+				var para = document.getElementById("firstPara");
+				para.innerHTML = "Staion " + stationChoice + " selected.";
+
+			}
+// gets input form the bttons for the destinatin then calls planTrip() Set html text to the trip result
+			function stationSelect2(lineChoice, stationChoice) {
+				secondLineSelection = lineChoice;
+				secondStationSelection = stationChoice;
+				//var para = document.getElementById("secondPara");
+				//para.innerHTML = "Staion " + station + " on the " + line + " selected.";
+
+				var resultTrip = planTrip(firstLineSelection, firstStationSelection, secondLineSelection, secondStationSelection);
+				var para = document.getElementById("resultText");
+			para.innerHTML = resultTrip;
+			}
+// draws the trip in yellow on the canvas
+			function drawTrip(line, stops, color, stopColor) {
+				var drawing = document.getElementById("drawLines");
+				var con = drawing.getContext("2d");
+				con.lineWidth = 12;
+
+
+				var start = line.stations.indexOf(stops[0]);
+				console.log("start: " +start);
+				console.log("stops: " +stops);
+				console.log("offs: " + line.offS);
+				con.lineCap = "round";
+				con.strokeStyle = color;
+				
+
+				con.strokeStyle = stopColor;
+				if (line.stations.indexOf(stops[0]) < line.stations.indexOf(stops[stops.length -1])) {
+					console.log("forwards");
+					for(var i = 0; i < stops.length; i++) {
+						con.beginPath(); 
+						con.moveTo(100 + (start * 100) + (i * 100) + line.offS, line.yposition);
+						con.lineTo(100  + (start * 100)+ (i * 100) + line.offS, line.yposition -5 );
+						con.stroke(); 
+						con.closePath();
+					}	
+						con.strokeStyle = color;
+						con.beginPath(); 
+
+						con.moveTo(100 + (start * 100) + line.offS , line.yposition);
+						con.lineTo((start * 100) + line.offS + (stops.length) * 100 , line.yposition);
+						con.stroke(); 
+						con.closePath();
+
+				} else {
+					console.log("backwards");
+					var a = 100 + (start * 100);
+					var b = 100 + (start * 100) -((stops.length - 1) * 100);
+					console.log(a);
+					console.log(b);
+					console.log("start" + start);
+					console.log("stops length " + stops.length);
+					con.strokeStyle = color;
+					con.beginPath(); 
+						con.moveTo(a + line.offS , line.yposition);
+						con.lineTo( b + line.offS, line.yposition);
+						con.stroke(); 
+						con.closePath();
+
+					con.strokeStyle = stopColor;
+					for(var i = 0; i < stops.length; i++) {
+						con.beginPath(); 
+						con.moveTo(100 + (start * 100) - (i * 100) + line.offS, line.yposition);
+						con.lineTo(100  + (start * 100)- (i * 100) + line.offS, line.yposition -5 );
+						con.stroke(); 
+						con.closePath();
+					}
+				}
+			}
+// -------------------
+// -------------------
+// draws one of the train lines
+			function drawLine(yposition, stops, color, stopColor) {
+				var drawing = document.getElementById("drawLines");
+				var con = drawing.getContext("2d");
+				con.lineWidth = 12;
+
+				var uSq = stops.indexOf("Union Square");
+				var offSet = 4 - uSq;
+
+				con.lineCap = "round";
+				con.strokeStyle = color;
+				con.beginPath(); 
+				con.moveTo(100 + (offSet * 100), yposition);
+				con.lineTo((stops.length) * 100 + (offSet * 100), yposition);
+				con.stroke(); 
+				con.closePath();
+
+				con.strokeStyle = stopColor;
+
+				for(var i = 0; i < stops.length; i++) {
+					if(stops[i] !== 'Union Square') {
+					con.fillText(stops[i], (100 * i) +100 + (offSet * 100), yposition - 20);
+					}
+				}
+				for(var i = 0; i < stops.length; i++) {
+					
+				con.beginPath(); 
+				con.moveTo(100 + (offSet * 100) + (i * 100), yposition);
+				con.lineTo(100 + (offSet * 100) + (i * 100), yposition - 5);
+				con.stroke(); 
+				con.closePath();
+				}
+			}
+// -------------------
+// uses drawLine to draw each o fthe tain lines
+			function drawLines(){
+				drawLine(lineN.yposition, lineN.stations, "red", "white");
+				drawLine(150, lineL.stations, "green", "white");
+				drawLine(250, line6.stations, "blue", "white");
+				drawUnion();
+
+			}
+// draws Union Square, which goes through each line
+			function drawUnion() {
+
+				var drawing = document.getElementById("drawLines");
+				var con = drawing.getContext("2d");
+
+				con.lineCap = "round";
+				con.strokeStyle = "white";
+				con.beginPath(); 
+				con.moveTo(500, 50);
+				con.lineTo(500, 250);
+				con.stroke(); 
+				con.closePath();
+
+				con.fillText("Union Square", 500, 30);
+			}
+// colors Union Square when it is used to change lines on a trip
+			function colorUnion(startLine, finishLine) {
+
+				var drawing = document.getElementById("drawLines");
+				var con = drawing.getContext("2d");
+
+				con.lineCap = "round";
+				con.strokeStyle = "yellow";
+				con.beginPath(); 
+				con.moveTo(500, startLine.yposition);
+				con.lineTo(500, finishLine.yposition);
+				con.stroke(); 
+				con.closePath();
+
+				con.fillText("Change at Union Square", 500, 10);
+			}
+			
+</script>
+	</body> 
+
+
+
+<html>

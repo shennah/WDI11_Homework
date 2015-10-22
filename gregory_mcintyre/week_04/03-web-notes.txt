@@ -1,0 +1,29 @@
+* Layers - http://public.csusm.edu/fangfang/Teaching/HTMmaterial/Fall07/Course%20Readings/5layer%20summary.pdf
+
+* DNS and IP addresses - https://github.com/GA-WDI/curriculum/tree/master/resources/00-programming/internet-fundamentals-lesson#ip-addresses-to-domains
+
+* nslookup, whois example
+
+* Type IP addresses into browsers, exercise
+
+* Ports?
+
+* TCP/IP - http://www.shuatiblog.com/assets/images/3way-Tcp-handshake.png
+
+* Line based protocols
+
+* SMTP example - https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol#SMTP_transport_example
+
+* HTTP example - https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Server_response
+
+* Elements of a URL - https://github.com/GA-WDI/curriculum/tree/master/resources/00-programming/internet-fundamentals-lesson#elements-of-a-url
+
+* python simple web server, requesting files from my ZXcomputer
+
+* ifconfig, traceroute
+
+* sinatra form
+
+EXTENSION
+
+* HTTPS - https://d39q4nuqfxwzac.cloudfront.net/wp-content/uploads/2014/04/03005207/advanceddiagramhttps1.jpg

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <p>My essay 1 2 3</p>
+    <blockquote>
+      <p>The best humans are humans at best.</p>
+      &mdash; Person who said that.
+    </blockquote>
+    <p>My essay 1 2 3</p>
+    <div class="box box1">
+      1
+      <div class="button">Fullscreen</div>
+    </div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+
+    <style>
+
+    /* global stuff */
+    body {
+      font-size: 40px;
+    }
+
+    /* general purpose style rules for all boxes */
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      color: white;
+      font-size: 40px;
+      border: 2px dashed black;
+      display: inline-block;
+    }
+    .box .button {
+      font-size: 20px;
+      background-color: white;
+      color: blue;
+      border: 1px solid black;
+      display: inline-block;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .box1 {
+      background-color: cyan;
+    }
+
+    /* box position related rules */
+    .box {
+      position: relative;
+    }
+    .box .button {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+    }
+
+    /* show/hide stuff */
+    .box .button {
+      display: none;
+    }
+    .box:hover .button {
+      display: inline-block; /* set it back to something that isn't none */
+    }
+
+    </style>
+  </body>
+</html>

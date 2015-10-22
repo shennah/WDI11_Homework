@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <script>
+
+for (var current = 100; current < 200; current++) {
+  console.log('Testing', current);
+  if (current % 7 == 0) {
+    console.log("Found it:", current);
+    break;
+  }
+}
+
+do {
+  var input = prompt("type in x");
+} while (input != "x");
+
+
+function assignGrade1(grade) {
+  if (grade >= 80) {
+    return "A";
+  } else if (grade >= 60) {
+    return "B";
+  } // ... other cases
+}
+
+function assignGrade2(grade) {
+  if (grade >= 80 && grade < 100) {
+    return "A";
+  } else if (grade >= 60 && grade < 80) {
+    return "B";
+  } // ... other cases
+}
+
+    </script>
+  </body>
+</html>

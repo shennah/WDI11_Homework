@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Cat Walk</title>
+ </head>
+ <body>
+ 
+  <img id = "cat1" style="position:absolute;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+
+    <img id = "cat2" style="position:absolute;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+
+     <img id = "cat3" style="position:absolute;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+
+ <script type="text/javascript">
+//7/10/2015
+//http://www.teaching-materials.org/jsweb/exercises/animation.html
+var catOne = document.getElementById("cat1");
+catOne.style.left = '0px'; //initial position
+var x = 0;
+function catWalk() {
+	if(x > document.body.clientWidth) {
+		x = -50;
+	} else	{
+		x +=10;
+	}
+	catOne.style.left = x + 'px';
+	setTimeout(catWalk,50);
+}
+window.onload=catWalk();
+
+var catTwo = document.getElementById("cat2");
+catTwo.style.left = '0px';
+catTwo.style.top = '280px';
+var y = 0;
+var counter=10; //start from left
+function catWalkTwo(){
+	if(y > document.body.clientWidth) {
+		y = document.body.clientWidth;
+		counter = -10;
+	} else if (y<0){
+		y =0;
+		counter = 10;
+	}
+	y += counter;
+	catTwo.style.left = y + 'px';
+	setTimeout(catWalkTwo,50);
+}
+window.onload = catWalkTwo();
+
+var catThree = document.getElementById("cat3");
+catThree.style.left = '0px';
+catThree.style.top = '560px';
+var z = 0;
+var counterA=10; //start from left
+function catWalkThree(){
+	var midScreen = Math.round(window.innerWidth/10) *10;
+	var newURL = "";
+	var oldURL = "";
+	if(z > window.innerWidth) {
+		z = window.innerWidth;
+		counterA = -10;
+	} else if (z<0){
+		z =0;
+		counterA = 10;
+	}
+	z += counter;
+	catThree.style.left = z + 'px';
+	if (y === midScreen) {
+		//tba
+	}
+}
+
+window.setInterval(catWalkThree,50);
+
+ </script>
+ </body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <body>
+    <script>
+
+// The N line has the following stops: Times Square, 34th, 28th, 23rd, Union Square, and 8th
+// The L line has the following stops: 8th, 6th, Union Square, 3rd, and 1st
+// The 6 line has the following stops: Grand Central, 33rd, 28th, 23rd, Union Square, and Astor Place.
+// All 3 subway lines intersect at Union Square, but there are no other
+// intersection points. (For example, this means the 28th stop on the N line is
+// different than the 28th street stop on the 6 line, so you'll have to
+// differentiate this when you name your stops in the arrays.)
+// Tell the user the number of stops AND the stops IN ORDER that they will pass through or change at.
+//
+//   planTrip('N', 'Times Square', '6', '33rd');
+//
+// console.log() shows output similar to this:
+//
+// "You must travel through the following stops on the N line: 34th, 28th, 23rd, Union Square."
+// "Change at Union Square."
+// "Your journey continues through the following stops: 23rd, 28th, 33rd."
+// "7 stops in total."
+
+var lines = {
+  'N': [
+    'Times Square',
+    '34th',
+    '28th',
+    '23rd',
+    'Union Square',
+    '8th'
+  ],
+  'L': [
+    '8th',
+    '6th',
+    'Union Square',
+    '3rd',
+    '1st'
+  ],
+  '6': [
+    'Grand Central',
+    '33rd',
+    '28th',
+    '23rd',
+    'Union Square',
+    'Astor Place'
+  ]
+};
+
+// Returns a list of station names like: ["Times Square", "34th", "28th"]
+//
+// index1 and index2 can be any 0 based position on the line, in any
+// order.
+//
+// The current station is not included.
+//
+function stationList(line, index1, index2) {
+  var result = [];
+  if (index2 > index1) {
+    // count up
+    for (var i = index1; i <= index2; i++) {
+      result.push(line[i]);
+    }
+  } else {
+    // count down
+    for (var i = index1; i >= index2; i--) {
+      result.push(line[i]);
+    }
+  }
+  result.shift(); // don't include the current station in the list
+  return result;
+}
+
+
+// Print a nice message about the stops to travel through, when the stops are
+// on the same line.
+//
+// Returns the number of stops passed through.
+//
+function planLine(lineName, stop0Name, stop1Name) {
+  if (!(lineName in lines)) { throw "Line " + lineName + " not found. :-("; }
+
+  var line = lines[lineName];
+  var index0 = line.indexOf(stop0Name);
+  var index1 = line.indexOf(stop1Name);
+
+  if (index0 === -1) { throw "Stop " + stop0Name + " not found. :-("; }
+  if (index1 === -1) { throw "Stop " + stop1Name + " not found. :-("; }
+
+  return stationList(line, index0, index1);
+}
+
+// Print a nice message about the stops to travel through.
+//
+// Returns the total number of stops passed through.
+//
+function planTrip(line0Name, stop0Name, line1Name, stop1Name) {
+  console.log("Going from line " + line0Name + " stop " + stop0Name +
+      " to line " + line1Name + " stop " + stop1Name);
+
+  var stations;
+  if (line0Name === line1Name) {
+    // Stay on the same line
+    stations = planLine(line0Name, stop0Name, stop1Name);
+    if (stations.length > 0) {
+      console.log("You must travel through the following stops on the " + line0Name + " line: " + stations.join(", ") + ".");
+    }
+  } else {
+    // Change at Union Square
+    var stations1 = planLine(line0Name, stop0Name, "Union Square");
+    if (stations1.length > 0) {
+      console.log("You must travel through the following stops on the " + line0Name + " line: " + stations1.join(", ") + ".");
+    }
+    console.log("Change at Union Square");
+    var stations2 = planLine(line1Name, "Union Square", stop1Name);
+    if (stations1.length > 0) {
+      console.log("Your journey continues through the following stops: " + stations2.join(", ") + ".");
+    }
+    stations = stations1.concat(stations2);
+  }
+  console.log(stations.length + " stops in total.");
+  return stations.length;
+}
+
+console.log('----- forwards');
+planTrip('N', 'Times Square', 'N', '28th'); // Simple case
+
+console.log('----- backwards');
+planTrip('N', '28th', 'N', 'Times Square'); // Backwards
+
+console.log('----- change at union square');
+planTrip('N', 'Times Square', '6', '33rd'); // Change at union square
+
+console.log('----- not going anywhere');
+planTrip('N', 'Times Square', 'N', 'Times Square'); // Not going anywhere
+
+console.log('----- not going anywhere 2');
+planTrip('N', 'Union Square', '6', 'Union Square'); // Not going anywhere 2
+
+try {
+  console.log('----- unknown stop name');
+  planTrip('N', 'Rainbow Island', 'N', 'Times Square'); // Error, there is no stop 'Rainbow Island'
+} catch(e) {
+  console.log(e);
+}
+
+try {
+  console.log('----- unknown line name');
+  planTrip('F', 'Times Square', 'N', 'Times Square'); // Error, there is no line 'F'
+} catch(e) {
+  console.log(e);
+}
+
+    </script>
+  </body>
+</html>
