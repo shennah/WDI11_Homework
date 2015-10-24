@@ -13,6 +13,10 @@ get '/' do
       @your_search_request = params["your_search"]
       if @your_search_request != nil
         @big_result = HTTParty.get("http://www.omdbapi.com/", query:{ s: @your_search_request})
+        myJSON = JSON.parse(@big_result)
+        puts myJSON
+
+
         pp "here is teh reaue of your serarc #{@big_result["Search"]}"
         if @big_result["Response"] != "False"
         @search_array = @big_result["Search"]
