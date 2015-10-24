@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>movi serch 4 ur m8s</title>
+	<style>
+		body {
+			font-family: "Courier New", Courier, monospace;
+		}
+
+		#wrapper {
+			width: 500px;
+			text-align: center;
+			margin: auto;
+			margin-top: 80px;
+		}
+
+		input {
+			display: block;
+			margin: auto;
+		}
+
+		.search {
+			width: 300px;
+			font-size: 1.5em;
+			font-family: "Courier New", Courier, monospace;
+			margin-bottom: 25px;
+			padding: 10px;
+			border: 3px solid lime;
+		}
+
+		.search:focus {
+			outline: none;
+		}
+
+		h1 {
+			margin-bottom: 30px;
+			background-color: yellow;
+			padding: 5px;
+		}
+
+		h2 {
+			margin-bottom: 50px;
+		}
+
+		div {
+			margin-bottom: 25px;
+		}
+
+		img {
+			margin-bottom: 50px;
+			border: 3px solid black;
+		}
+
+
+
+	</style>
+</head>
+<body>
+<div id="wrapper">
+
+
+
+<h1>m8 wat moovi do u wnt??/</h1>
+
+<form>
+
+<input class="search" type="text" name="movie_search"></input>
+<input class="submitbutt" type="submit"></input>
+
+</form>
+
+<% if @movie_search != nil %> <!--  # stuff after this will only work if not nill -->
+
+	<h2>heers ur serch rezults u fkn hapy now u lil shit?</h2>
+
+	<% @search_results.each do |result| %>
+
+	<div>
+		<!-- Title: --> <%= result["Title"] %>
+		<!-- Year: -->- <%= result["Year"] %>
+		<br>
+		<br>
+		<img src="<%= result["Poster"] %>"
+	</div>
+
+	<% end %>
+<% end %>
+
+
+</div>
+</body>
+</html>
