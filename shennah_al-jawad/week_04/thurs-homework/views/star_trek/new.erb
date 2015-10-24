@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans'>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+			
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				outline: 0;
+				font-weight: inherit;
+				font-style: inherit;
+				font-size: 100%;
+				vertical-align: baseline;
+				background-color: #171619;
+			}
+
+			:focus {
+				outline: 0;
+			}
+			
+			body {
+				font-family: 'Open Sans', helvetica, sans-serif;
+				color: red;
+			}
+
+			h1 {
+				color: #F28705;
+				text-align: center;
+				margin: auto;
+				font-size: 250%;
+				margin-top: 30px;
+			}
+
+			form {
+				margin-top: 50px;
+				text-align: center;
+			}
+
+			input[type="text"] {
+				border: 3px solid #9498F2;
+				margin-bottom: 15px;
+				width: 250px;
+				padding: 5px;
+				color: #F29E6D;
+				border-radius: 15px;
+			}
+
+			input[type="text"]:focus {
+				border: 3px solid #BF95BF;
+			}
+
+			::-webkit-input-placeholder {
+   				color: #F29E6D;
+			}
+
+			textarea {
+				border: 3px solid #9498F2;
+				margin-bottom: 15px;
+				width: 250px;
+				padding: 5px;
+				color: #F29E6D;
+				border-radius: 15px;
+			}
+
+			input[type=submit] {
+				margin-top: 20px;
+				border: 2px solid #BF95BF;
+				padding: 5px 10px 5px 10px;
+				color: #BF5E66;
+				border-radius: 15px;
+			}
+
+		</style>
+	</head>
+
+<body>
+	
+
+<h1>Add an Alien Race!</h1>
+<form action="/star_trek" method="POST">
+	<input type="text" name="species" placeholder="Race">
+	<br>
+
+	<input type="text" name="planet" placeholder="Planet">
+	<br>
+
+	<input type="text" name="charachters" placeholder="Charachters">
+	<br>
+
+	<textarea rows="5" cols="25" type="text" name="description" placeholder="Description"></textarea>
+	<br>
+
+	<input type="text" name="photo" placeholder="Photo url">
+	<br>
+
+	<input type="submit">
+</form>
+
+</body>
+</html>
