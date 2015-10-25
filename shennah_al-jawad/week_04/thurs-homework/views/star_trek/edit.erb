@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans'>
+		<style>
+
+
+		</style>
+	</head>
+
+<body>
+
+
+<h1>Edit a Race</h1>
+
+<form action="/star_trek/<%= @star_trek["id"] %>" method="POST">
+	<input type="text" name="species" placeholder="Race" value="<%= @star_trek["species"] %>">
+	<br>
+
+	<input type="text" name="planet" placeholder="Planet" value="<%= @star_trek["planet"] %>">
+	<br>
+
+	<input type="text" name="charachters" placeholder="Charachters" value="<%= @star_trek["charachters"] %>">
+	<br>
+
+	<input type="text" name="description" placeholder="Description" value="<%= @star_trek["description"] %>">
+	<br>
+
+	<input type="text" name="photo" placeholder="Photo url" value="<%= @star_trek["photo"] %>">
+	<br>
+
+	<input type="submit">
+</form>
+
+
+</body>
+</html>

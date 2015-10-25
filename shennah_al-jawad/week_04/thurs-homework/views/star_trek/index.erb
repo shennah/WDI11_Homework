@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans'>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+			
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				outline: 0;
+				font-weight: inherit;
+				font-style: inherit;
+				font-size: 100%;
+				vertical-align: baseline;
+				background-color: #171619;
+			}
+
+			:focus {
+				outline: 0;
+			}
+			
+			body {
+				font-family: 'Open Sans', helvetica, sans-serif;
+				color: red;
+			}
+
+			h1 {
+				color: #F28705;
+				text-align: center;
+				margin: auto;
+				font-size: 250%;
+				margin-top: 30px;
+			}
+
+			h2 {
+				color: #F29E6D;
+				text-align: center;
+				margin: auto;
+				font-size: 175%;
+				margin-top: 5px;
+				margin-bottom: 40px;
+			}
+
+			ul {
+				width: 300px;
+				margin: auto;
+				list-style: none;
+				text-align: center;
+				margin-bottom: 30px;
+			}
+
+			ul li {
+				margin-bottom: 5px;
+			}
+
+			ul li a{
+				text-decoration: none;
+				color: #9498F2;
+				font-size: 130%;
+			}
+
+			li a:hover {
+				color: #BF95BF;
+			}
+
+			p {
+				margin: auto;
+				text-align: center;
+			}
+
+			p a {
+				color: #BF5E66;
+				text-decoration: none;
+				font-size: 130%;
+			}
+
+			p a:hover {
+				color: #BF95BF
+			}
+
+		</style>
+	</head>
+
+<body>
+	
+
+
+<h1>Super Uncool Star Trek Alien Database</h1>
+<h2>qar rIgh Hov trek nov De' waw'</h2>
+
+<ul>
+	<% @star_trek.each do |record| %>
+		<li class="alien">
+		<a href="/star_trek/<%= record["id"] %>"><%= record["species"] %></a>
+		</li>
+	<% end %>
+</ul>
+
+<p>
+	<a href="/star_trek/new">Add a new alien race</a>
+</p>
+
+</body>
+</html>

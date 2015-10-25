@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans'>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+			
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				outline: 0;
+				font-weight: inherit;
+				font-style: inherit;
+				font-size: 100%;
+				vertical-align: baseline;
+				background-color: #171619;
+			}
+
+			:focus {
+				outline: 0;
+			}
+			
+			body {
+				font-family: 'Open Sans', helvetica, sans-serif;
+				color: red;
+			}
+
+			h1 {
+				color: #F28705;
+				text-align: center;
+				margin: auto;
+				font-size: 250%;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+
+			h3 {
+				font-size: 120%;
+				margin-top: 5px;
+			}
+
+			p {
+				margin: auto;
+				text-align: center;
+			}
+
+			p a {
+				color: #BF5E66;
+				text-decoration: none;
+				font-size: 130%;
+			}
+
+			p a:hover {
+				color: #BF95BF
+			}
+
+			form {
+				margin-top: 50px;
+				text-align: center;
+			}
+
+			input[type=submit] {
+				border: 2px solid #BF95BF;
+				padding: 5px 10px 5px 10px;
+				color: #BF5E66;
+				border-radius: 15px;
+				margin-bottom: 10px;
+			}
+
+			.show {
+				width: 500px;
+				margin: auto;
+				color: #F29E6D;
+				margin-bottom: 20px;
+				text-align: justify;
+			}
+
+			.title {
+				color: #9498F2;
+			}
+
+			img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+		</style>
+	</head>
+
+<body>
+
+
+<h1><%= @star_trek["species"] %></h1>
+
+<div class="show">
+<h3><span class="title">Planet:</span> <%= @star_trek["planet"] %><br></h3>
+<h3><span class="title">Notable Charachters:</span> <%= @star_trek["charachters"] %></h3><br>
+<h3><span class="title">Description:</span> <%= @star_trek["description"] %></h3><br>
+<img src="<%= @star_trek["photo"] %>"/>
+</div>
+
+<p>
+<a href="/star_trek/<%= @star_trek["id"] %>/edit">Edit</a>
+<br>
+<a href="/star_trek">Back to list of Aliens</a>
+<form action="/star_trek/<%= @star_trek["id"] %>/delete" method="POST">
+	<input type="submit" value="Delete">
+</form>
+</p>
+
+
+</body>
+</html>
