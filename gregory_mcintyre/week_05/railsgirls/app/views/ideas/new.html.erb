@@ -1,0 +1,15 @@
+<!--
+Sinatra:
+ <form>
+	<input>
+	<input>
+</form>
+ -->
+
+<h1>New Idea</h1>
+
+<%= form_for(@idea) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.submit %>
+<% end %>
