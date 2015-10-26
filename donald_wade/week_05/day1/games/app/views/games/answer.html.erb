@@ -1,0 +1,59 @@
+<!-- <%= @my_parameters %> -->
+
+<p>
+  Hi there,
+  <span class="boo">
+    <%= @your_name %>.
+  </span>
+</p>
+
+<% if @your_question %>
+<p>
+  In response to your question,
+  <span class="boo">
+    "<%= @your_question %>",
+  </span>
+  there can only be one truly authoritative answer:
+  <p>
+    <span class="boo">
+      <%= @rand_answer %>
+    </span>
+  </p>
+</p>
+<% end %>
+
+<% if @guess %>
+<p>
+  Your guess was:
+  <span class="boo">
+    <%= @guess %>
+  </span>
+</p>
+The actual answer was:
+<span class="boo">
+  <%= @secret_number %>
+</span>
+<span class="boo">
+  <p>
+    <%= @result %>
+  </p>
+</span>
+<% end %>
+
+<% if @yourRPS %>
+<p>
+  Your guess was:
+</p>
+<p>
+  <span class="boo">
+    <%= @yourRPS %>.
+  </span>
+</p>
+<p>
+  <span class="boo">
+    <%= @response %>
+  </span>
+</p>
+<% end %>
+
+<%= link_to("Back to Home Page", games_home_path) %>
