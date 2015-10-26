@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>	
+<h3>Please Enter a movie name:</h3>
+<form>
+<input type="text" name="title">
+<input type="submit">
+</form>
+<% if @search_results %>
+	<% @search_results.each do |result| %>
+    	<div>
+			Title: <%= result["Title"] %>
+	 		Year: <%= result["Year"] %>
+	 		Poster: <img src="<%= result["Poster"] %>">
+		</div>
+ <% end %>
+<% end %>
+</body>
+</html>
+
+
