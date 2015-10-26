@@ -1,0 +1,11 @@
+<h1>Listing Ideas</h1>
+
+<ul>
+	<% @ideas.each do |idea| %>
+		<li>Name: <%= idea.name %></li>
+	<% end %>
+</ul>
+
+<!-- <a href="/ideas/new">New</a> -->
+
+<%= link_to("New", new_idea_path) %>
