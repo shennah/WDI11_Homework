@@ -1,0 +1,18 @@
+<h1>Magic 8 ball</h1>
+<h2>
+<%= params["id"] %>?
+</h2>
+
+
+<% if rand(2) == 0
+	answer = "yes"
+	else
+	answer = "no"
+end
+	 %>
+
+<h2>	 
+<%= answer %>
+</h2>
+
+

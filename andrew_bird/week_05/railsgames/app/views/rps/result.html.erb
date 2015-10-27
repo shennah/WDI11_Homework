@@ -1,0 +1,48 @@
+<h1>Rock Paper Scissors</h1>
+<% user_rps =  params["throw"] %>
+<% comp_rps_num = rand(3) + 1
+	if comp_rps_num == 1
+		comp_rps = 'r'
+		comp_output = "Rock"
+	elsif comp_rps_num == 2
+		comp_rps = 'p'
+		comp_output = "Paper"
+	else 
+		comp_rps = 's'
+		comp_output = "Scissors"
+	end
+%>
+Computers choice:
+<%= comp_output %>
+
+
+<br>
+
+
+<% if user_rps == 'r'
+		if comp_rps == 'r'
+			winner = 'Tie'
+		elsif comp_rps == 'p'
+			winner = 'Computer'
+		else
+			winner = 'User'
+		end
+	elsif user_rps == 'p'
+		if comp_rps == 'p'
+			winner = 'Tie'
+		elsif comp_rps == 's'
+			winner = 'Computer'
+		else
+			winner = 'User'
+		end
+	elsif user_rps == 's'
+		if comp_rps == 's'
+			winner = 'Tie'
+		elsif comp_rps == 'r'
+			winner = 'Computer'
+		else
+			winner = 'User'
+		end
+	end %>
+Winner:
+<%= winner %>

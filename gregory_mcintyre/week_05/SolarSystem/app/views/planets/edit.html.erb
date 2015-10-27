@@ -1,0 +1,7 @@
+<h1>Editing Planet</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @planet %> |
+<%= link_to 'Delete', @planet, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', planets_path %>
