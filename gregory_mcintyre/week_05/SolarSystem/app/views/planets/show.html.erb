@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="planet">
+  <figure class="polaroid">
+    <%= image_tag @planet.image %>
+    <figcaption><%= @planet.name %></figcaption>
+  </figure>
+
+  <div class="planet-details">
+    <p>
+      <strong>Number of moons:</strong>
+      <%= @planet.num_moons %>
+    </p>
+
+    <p>
+      <strong>Average radius:</strong>
+      <%= number_to_human(@planet.mean_radius) %> km
+    </p>
+
+    <p>
+      <strong>Mass:</strong>
+      <%= number_to_human(@planet.mass) %> kg
+    </p>
+  </div>
+</div>
+
+<p class="actions">
+  <%= link_to 'Edit', edit_planet_path(@planet) %> |
+  <%= link_to 'Back', planets_path %>
+</p>

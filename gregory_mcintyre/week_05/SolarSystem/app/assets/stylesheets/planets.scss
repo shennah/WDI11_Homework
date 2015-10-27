@@ -1,0 +1,82 @@
+// Place all the styles related to the planets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit_planet {
+	position: relative;
+	#preview {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		img {
+			max-width: 200px;
+			max-height: 200px;
+		}
+	}	
+}
+
+.planet-list-item {
+	margin: 2em;
+	float: left;
+
+	&:nth-child(1) {
+		transform: rotate(5deg);
+	}
+	&:nth-child(2) {
+		transform: rotate(-5deg);
+	}
+	
+	img {
+		max-height: 100px;
+		max-width: 100px;
+	}
+}
+
+.planet img {
+	max-width: 400px;
+	max-height: 400px;
+}
+
+.planet .polaroid {
+	float: left;
+	margin-right: 30px;
+}
+
+.polaroid {
+	background: white;
+	color: black;
+	display: inline-block;
+	margin: 0 15px;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 0 4px 6px rgba(255,255,255,.5);
+	transition: all .15s ease;
+	z-index:0;
+
+	.planet &:hover {
+        transform: rotate(1deg) scale(1.05);        
+		z-index:10;
+        box-shadow: 0 6px 8px rgba(255,255,255,.7);
+	}
+
+	img {
+		display: block;
+		width: inherit;
+	}
+	figcaption {
+		font-family: "Comic Sans MS", "Comic Sans" serif;
+		line-height: 1.5;
+	}
+
+}
+
+.planet {
+	font-size: 30px;
+
+	&:after {
+  		content: "";
+  		display: table;
+  		clear: both;
+	}
+}

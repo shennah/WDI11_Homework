@@ -1,0 +1,35 @@
+body {
+  	background-color: black;
+  	font-family: "Comic Sans MS", "Comic Sans" serif;
+  	font-size: 15px;
+  	line-height: 1.5;
+  	background-image: url(http://farm5.staticflickr.com/4061/5162941411_88d8bf1190_z.jpg);
+  	background-repeat: repeat-x;
+	color: white;
+}
+
+a {
+	color: yellow;
+}
+
+input {
+	font-size: 20px;
+	padding: 5px;
+}
+
+input[type=submit] {
+	border-radius: 10px;
+	padding: 20px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.actions {
+	clear: both;
+	margin: 1em 0;
+	display: block;
+}
+.page-container {
+	margin: 0 auto;
+	max-width: 720px;
+}

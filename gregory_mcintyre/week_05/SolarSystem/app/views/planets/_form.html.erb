@@ -1,0 +1,41 @@
+<%= form_for(@planet) do |f| %>
+  <% if @planet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+
+      <ul>
+      <% @planet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+
+    <div id="preview">
+    </div>
+
+  </div>
+  <div class="field">
+    <%= f.label :num_moons %><br>
+    <%= f.number_field :num_moons %>
+  </div>
+  <div class="field">
+    <%= f.label :mean_radius %><br>
+    <%= f.text_field :mean_radius %>
+  </div>
+  <div class="field">
+    <%= f.label :mass %><br>
+    <%= f.text_field :mass %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
