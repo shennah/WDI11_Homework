@@ -1,0 +1,18 @@
+<html>
+<p>Search Movie</p>
+<form>
+		<input type="text" name="title"></title>
+		<input type="submit"></input>
+</form>
+
+<% if @title != nil && @search_result !=nil %>
+	<% @search_result.each do |result| %>
+	<div>
+		Title: <%= result["Title"] %>
+		Year: <%= result["Year"] %>
+		Type: <%= result["Type"] %>
+		Poster: <img src="<%=result["Poster"] %>">
+	</div>
+	<% end %>
+<% end %>
+</html>
