@@ -1,4 +1,4 @@
-list_of_answers = [
+LIST_OF_ANSWERS = [
   "You're not actually being serious, are you?",
   "Blue",
   "Without hesitation",

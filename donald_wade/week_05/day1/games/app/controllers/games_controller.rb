@@ -1,5 +1,8 @@
 require 'pp'
-require 'data.rb'
+# require './data.rb'
+
+# require_relative './data.rb'
+require 'magic_8_ball' # not expected that thsi would be needed here. Look into...
 
 class GamesController < ApplicationController
   def home
@@ -16,21 +19,13 @@ class GamesController < ApplicationController
   end
 
   def answer
-    list_of_answers = [
-      "You're not actually being serious, are you?",
-      'Blue.',
-      'Without hesitation.',
-      'Swallows and Amazons.',
-      'On the twelfth of Never.',
-      'I think maybe you ought to reconsider that question. Keystroke logging is enabled (just a friendly warning...)'
-    ]
     pp "ehllo I'm the answer function"
     @my_parameters = params
     @your_name = @my_parameters[:name]
     if @my_parameters[:question]
       @your_question = @my_parameters[:question].downcase
     end
-    @rand_answer = list_of_answers[rand(list_of_answers.length)]
+    @rand_answer = Magic8Ball::LIST_OF_ANSWERS[rand(Magic8Ball::LIST_OF_ANSWERS.length)]
     if @my_parameters[:guess]
       @guess = @my_parameters[:guess].to_i
       pp @guess
