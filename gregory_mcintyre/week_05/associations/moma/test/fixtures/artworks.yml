@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  year: 1
+  medium: MyString
+  category: MyString
+  movement: MyString
+  artist_id: 
+
+two:
+  name: MyString
+  year: 1
+  medium: MyString
+  category: MyString
+  movement: MyString
+  artist_id: 
