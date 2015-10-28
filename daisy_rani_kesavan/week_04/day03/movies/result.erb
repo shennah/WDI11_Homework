@@ -1,0 +1,15 @@
+require 'sinatra'
+
+get '/' do
+if @movie == nil
+erb: form
+else
+response = HTTParty.get("http://www.omdbapi.com/", query:{ s: "elf"})
+ruby_hash = JSON.parse(response.body)
+search_results = ruby_hash["Search"]
+search_results.each do  |movie_details|
+pp movie_details["Title"]
+erb: result
+
+erb: form
+end

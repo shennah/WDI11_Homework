@@ -1,0 +1,16 @@
+<h3>Edit an Item</h3>
+
+<form action="/shop/<%= @shop["product_code"] %>" method="POST">
+	<input type="text" name="product_code" placeholder="code">
+	<br>
+	<input type="text" name="product_name" placeholder="name">
+	<input type="text" name="product_name" placeholder="name" value="<%= @shop["product_name"] %>">
+	<br>
+	<input type="text" name="price" placeholder="Price">
+	<input type="text" name="price" placeholder="Price" value="<%= @shop["price"] %>">
+	<br>
+	<input type="text" name="expiry_date" placeholder="expiry">
+	<input type="text" name="expiry_date" placeholder="expiry" value="<%= @shop["expiry_date"] %>">
+	<br>
+	<input type="submit">
+</form>
