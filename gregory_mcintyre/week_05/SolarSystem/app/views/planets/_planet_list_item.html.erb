@@ -1,0 +1,11 @@
+
+<%#
+  <%= render partial: "planet_list_item", collection: @planets %>
+%>
+
+<div class="planet-list-item">
+<figure class="polaroid">
+  <%= image_tag(planet_list_item.image) %>
+  <figcaption><%= link_to planet_list_item.name, planet_list_item %></figcaption>
+</figure>
+</div>

@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$planet-image-size-large: 300px;
+
+
 .edit_planet {
 	position: relative;
 	#preview {
@@ -9,8 +12,8 @@
 		top: 20px;
 		right: 20px;
 		img {
-			max-width: 200px;
-			max-height: 200px;
+			max-width: $planet-image-size-large;
+			max-height: $planet-image-size-large;
 		}
 	}	
 }
@@ -33,8 +36,8 @@
 }
 
 .planet img {
-	max-width: 400px;
-	max-height: 400px;
+	max-width: $planet-image-size-large;
+	max-height: $planet-image-size-large;
 }
 
 .planet .polaroid {
