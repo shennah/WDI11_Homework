@@ -1,0 +1,61 @@
+
+TODAY
+ - create db
+ - Album
+ - migrate
+ - Create some seed data
+ - album scaffolding
+
+ - Song, Musician, and assocations
+
+User
+
+----
+
+# TUNR
+
+Thursday & Friday
+
+MODELS
+
+	User
+		- has many mixtapes
+		* name
+	Song (a bit like Artwork)
+		- belongs to one album
+		- belongs to one musician
+		- has many genres (many to many)
+		- has many mixtapes (many to many)
+		* title
+	Musician (a bit like Artist)
+		- has many songs
+		- has many genres through song
+		- (has many albums through song)
+		* name
+	Album
+		- has many songs
+		- (has many musicians through song)
+		* title
+		* year
+		* (artist_name)
+
+	Genre
+		- has many songs (many to many)
+		* title
+	Mixtape
+		- belongs to one user
+		- has many songs (many to many)
+		* title
+
+Join Tables:
+
+	Song Genre (SongGenreLink ? SongGenreMembership ?)
+	Mixtape Song (MixtapeSongLink ? MixtapeSongMembership ?)
+
+ROUTES
+
+- /albums
+- /musicians
+
+
+
