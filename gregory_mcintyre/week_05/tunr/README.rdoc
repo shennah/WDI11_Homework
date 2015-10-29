@@ -9,6 +9,11 @@ TODAY
  * migrate
  * Create some seed data
  * associations
+ * generate genre model
+ * generate join table genre <=> song
+ * review migrations
+ * run migrations
+ - add many-to-many assocation
 
 User
 
