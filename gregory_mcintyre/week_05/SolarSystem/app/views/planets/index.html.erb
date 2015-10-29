@@ -3,42 +3,9 @@
 <h1>The Amazing Solar System</h1>
 
 <div class="planet-list">
-    <% @planets.each do |planet| %>
-      <div class="planet-list-item">
-        <figure class="polaroid">
-          <%= image_tag(planet.image) %>
-          <figcaption><%= link_to planet.name, planet %></figcaption>
-        </figure>
-      </div>
-    <% end %>
+  <%= render partial: "planet_list_item", collection: @planets %>
 </div>
 
-<!-- 
-<table class="planet-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Num moons</th>
-      <th>Mean radius</th>
-      <th>Mass</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @planets.each do |planet| %>
-      <tr>
-        <td><%= link_to planet.name, planet %></td>
-        <td><%= image_tag(planet.image) %></td>
-        <td><%= planet.num_moons %></td>
-        <td><%= planet.mean_radius %></td>
-        <td><%= number_to_human(planet.mass) %> kg</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- -->
 <br>
 
 <p class="actions">

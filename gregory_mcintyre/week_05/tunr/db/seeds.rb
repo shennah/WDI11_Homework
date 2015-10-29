@@ -6,14 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Artist.destroy_all
-Album.destroy_all
-Song.destroy_all
+prince = Artist.where(name: "Prince").first_or_create
+alice_cooper = Artist.where(name: "Alice Cooper").first_or_create
 
-prince = Artist.create(name: "Prince")
-alice_cooper = Artist.create(name: "Alice Cooper")
+trash = Album.where(title: "Trash", year: 1989).first_or_create
 
-trash = Album.create(title: "Trash", year: 1989)
+poison = Song.where(title: "Poison", artist: alice_cooper, album: trash).first_or_create
+bed_of_nails = Song.where(title: "Bed of Nails", artist: alice_cooper, album: trash).first_or_create
 
-poison = Song.create(title: "Poison", artist: alice_cooper, album: trash)
-bed_of_nails = Song.create(title: "Bed of Nails", artist: alice_cooper, album: trash)
+glam_metal = Genre.where(title: "Glam Metal").first_or_create
+
+glam_metal.songs = [poison, bed_of_nails]
+glam_metal.save
+
+# rake db:seed
