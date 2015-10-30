@@ -17,4 +17,8 @@ Set up the routes, controllers and views for:
 * login form (new)
 * action to actually log in (create)
 
-Print current user name on the layout
+* Print current user name on the layout
+
+- Avoid /
+- Require current user for /cats
+
