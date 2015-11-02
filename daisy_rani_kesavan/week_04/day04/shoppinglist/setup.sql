@@ -1,4 +1,3 @@
-
 CREATE TABLE shopping(
 	product_code INTEGER PRIMARY KEY,
 	product_name TEXT,

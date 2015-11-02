@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ocean.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @ocean.image %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @ocean.place %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @ocean.area %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @ocean.volume %>
+</p>
+
+<%= link_to 'Edit', edit_ocean_path(@ocean) %> |
+<%= link_to 'Back', oceans_path %>

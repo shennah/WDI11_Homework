@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image: MyString
+  place: MyString
+  area: 1.5
+  volume: 1.5
+
+two:
+  name: MyString
+  image: MyString
+  place: MyString
+  area: 1.5
+  volume: 1.5
