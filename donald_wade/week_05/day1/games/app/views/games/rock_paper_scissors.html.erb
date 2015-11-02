@@ -1,0 +1,12 @@
+<h1>Rock, Paper, Scissors</h1>
+<!-- <p>Find me in app/views/games/rock_paper_scissors.html.erb</p> -->
+
+<%= form_tag(games_answer_path, method: "POST", class: "my_form") do %>
+<%= text_field_tag "name", nil, placeholder: "What is your name?", autocomplete: "off" %>
+<br>
+<%= text_field_tag "rps", nil, placeholder: "Kindly choose Rock, Paper or Scissors", autocomplete: "off" %>
+<br>
+<div class="button_holder">
+  <%= submit_tag "Wield your weapon", class: "my_button" %>
+</div>
+<% end %>
