@@ -1,0 +1,83 @@
+/* --------------------------
+ * baseline
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+ html, body {
+	font-family: sans-serif;
+	font-size: 20px;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+input {
+	font-size: 20px;
+	padding: 0;
+}
+
+input[type=text] {
+	border: none;
+	outline: none;
+}
+
+button {
+	padding: 0 0.5em;
+	border: 1px solid blue;
+	cursor: pointer;
+	background-color: transparent;
+	outline: none;
+	color: blue;
+}
+button:active {
+	background-color: blue;
+	color: white;
+}
+
+/* --------------------------
+ * song-list
+ */
+
+ .song-list {
+ 	display: inline-block;
+ 	min-width: 400px;
+ }
+
+/* --------------------------
+ * song
+ */
+
+.song {
+	cursor: pointer;
+	border-bottom: 1px solid #bbb;
+	overflow: hidden; /* clearfix */
+	height: 25px;
+}
+
+.song:hover {
+	background-color: black;
+	color: white;
+}
+
+.song .editing {
+	display: none;
+}
+
+.song.mode-editing {
+	cursor: inherit;
+}
+.song.mode-editing:hover {
+	background-color: white;
+	color: black;
+}
+.song.mode-editing .viewing {
+	display: none;
+}
+.song.mode-editing .editing {
+	display: block;
+}
+
