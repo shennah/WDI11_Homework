@@ -6,11 +6,6 @@ var mixtape = mixtape || {};
 mixtape.Song = Backbone.Model.extend({
 	// extra functions, definitions, for Song
 
-	defaults: {
-		name: "Piano Man",
-		artist: "Billy Joel",
-	},
-
 	initialize: function() {
 		this.on("all", function(event){
 			console.log(event);
