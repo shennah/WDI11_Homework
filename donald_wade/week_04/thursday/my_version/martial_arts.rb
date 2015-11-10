@@ -74,7 +74,7 @@ post '/martial_arts/:id' do
     style = '#{params[:style]}',
     notes = '#{params[:notes]}'
     WHERE id = #{params[:id]}'")
-
+  redirect to "/martial_arts/#{params[:id]}"
 end
 
 post '/martial_arts/:id/delete' do

@@ -1,0 +1,24 @@
+
+- generate cats scaffolding (or already have a rails app)
+
+Set up the User model:
+
+* generate user model with email and password_digest fields
+* add "has_secure_password" to the User model class
+* add the "bcrypt" gem and bundle to install it
+
+Set up the routes, controllers and views for:
+
+* register new user form (new)
+* route and action for creating a new user (create)
+
+Set up the routes, controllers and views for:
+
+* login form (new)
+* action to actually log in (create)
+
+* Print current user name on the layout
+
+- Avoid /
+- Require current user for /cats
+

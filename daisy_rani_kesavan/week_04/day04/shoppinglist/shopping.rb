@@ -12,7 +12,6 @@ def query_db(sql)
 	return data
 end
 
-
 # localhost:4567
 get '/' do
  	"Here we go for <a href='/shop'>Shopping</a>"
@@ -54,8 +53,10 @@ end
  end
 
  # http://localhost:4567/shop/edit
- get '/shop/edit' do  
+ get '/shop/:product_code/edit' do 
+  @shop = query_db('SELECT * FROM shopping WHERE product_code = ' + params[:product_code]).first  
   erb :'shop/edit'
+  pp @shop
   erb 'shop/edit'.to_sym
  end
 
@@ -68,11 +69,10 @@ end
    redirect to "/shop/#{params[:product_code]}"
  end
 
-
  # delete an item
  post '/shop/:product_code/delete' do
-   query_db("DELETE FROM shop WHERE product_code = '#{params[:product_code]}'")
-   redirect to "/shop"
+   query_db("DELETE FROM shopping WHERE product_code = '#{params[:product_code]}'")
+   redirect to "/shop/list"
  end
 
 

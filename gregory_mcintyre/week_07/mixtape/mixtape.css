@@ -1,0 +1,129 @@
+/* --------------------------
+ * baseline
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+ html, body {
+	font-family: sans-serif;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin-bottom: 0;
+	font-size: 20px;
+}
+
+input {
+	font-size: 15px;
+	padding: 0 0.5em;
+}
+
+input[type=text] {
+	border: none;
+	outline: none;
+	background-color: #eee;
+}
+
+button {
+	padding: 0 0.5em;
+	border: 1px solid blue;
+	cursor: pointer;
+	background-color: transparent;
+	outline: none;
+	color: blue;
+}
+button:active {
+	background-color: blue;
+	color: white;
+}
+
+.container {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+/* --------------------------
+ * mixtape
+ */
+
+ .mixtape {
+ 	min-width: 500px;
+ 	display: inline-block;
+ }
+
+ .mixtape-buttons {
+ 	text-align: right;
+ 	margin: 0;
+ }
+
+/* --------------------------
+ * song-list
+ */
+
+ .song-list {
+ }
+
+/* --------------------------
+ * song
+ */
+
+.song {
+	border-bottom: 1px solid #aaa;
+	position: relative;
+	padding-right: 40px;
+}
+
+.song .name-and-artist {
+	cursor: pointer;
+}
+
+.song .name {
+	margin-right: 2rem;
+	font-size: 35px;
+	line-height: 15px;
+	position: relative;
+	bottom: -0.15em;
+	text-transform: uppercase;
+	font-family: 'Indie Flower', sans-serif;
+}
+
+.song .artist {
+	font-weight: bold;
+	font-size: 14px;
+	color: #888;
+	position: relative;
+	bottom: -0.32em;
+	text-transform: uppercase;
+}
+
+.song .buttons {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.song .editing {
+	display: none;
+}
+
+.song.mode-editing {
+	cursor: inherit;
+}
+.song.mode-editing:hover {
+	background-color: white;
+	color: black;
+}
+.song.mode-editing .viewing {
+	display: none;
+}
+.song.mode-editing .editing {
+	display: block;
+}
+

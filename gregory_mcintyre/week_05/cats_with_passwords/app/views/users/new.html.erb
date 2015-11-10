@@ -1,0 +1,16 @@
+<h1>Sign Up To CATS!</h1>
+
+<%= form_for(:user, url: '/users') do |f| %>
+
+Name: <%= f.text_field :name %> <br>
+Email: <%= f.email_field :email %> <br>
+Password: <%= f.password_field :password %> <br>
+Password Confirmation: 
+<%= f.password_field :password_confirmation %>
+
+<br>
+<br>
+
+<%= f.submit "Sign Up" %>
+
+<% end %>
