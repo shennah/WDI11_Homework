@@ -3,16 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mixtape</title>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="mixtape.css">
 </head>
 <body>
-	<h1>Mixtape</h1>
-
-	<div class="mixtape">
-		<p>
-			<button class="add-song">Add Song</button>
-		</p>
-		<div class="song-list">
+	<div class="container">
+		<h1>Mixtape</h1>
+		<div class="mixtape">
+			<div class="mixtape-buttons">
+				<button class="add-song">Add Song</button>
+			</div>
+			<div class="song-list">
+			</div>
 		</div>
 	</div>
 
@@ -20,7 +22,8 @@
 
 		<div class="viewing">
 			<span class="name-and-artist">
-				<%= name %> - <%= artist %>
+				<span class="name"><%= name %></span>
+				<span class="artist"><%= artist %></span>
 			</span>
 			<span class="buttons">
 				<!-- <button class="edit-song">Edit</button> -->
