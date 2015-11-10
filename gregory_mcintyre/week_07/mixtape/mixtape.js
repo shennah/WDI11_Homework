@@ -8,11 +8,18 @@ mixtape.Song = Backbone.Model.extend({
 
 	initialize: function() {
 		this.on("all", function(event){
-			console.log(event);
+			console.log("song", event);
 		});
-		this.on("change:artist", function(model){
-			console.log("Song now written by " +
-			 model.get("artist"));
+	}
+});
+
+
+mixtape.SongList = Backbone.Collection.extend({
+	model: mixtape.Song,
+
+	initialize: function() {
+		this.on("all", function(event){
+			console.log("list", event);
 		});
 	}
 });
@@ -22,6 +29,8 @@ mixtape.SongView = Backbone.View.extend({
 	// fetch our song template out of the HTML and
 	// prepare it for use
 	template: _.template( $("#song-template").html() ),
+
+	className: "song",
 
 	events: {
 		"click .save-song": "onSave",
@@ -44,6 +53,11 @@ mixtape.SongView = Backbone.View.extend({
 		);
 		// put the result into the HTML DOM
 		this.$el.html(templateResult);
+
+		if (this.model.get('artist') === "" &&
+				this.model.get('name') === "") {
+			this.$el.addClass("mode-editing");
+		}
 	},
 
 	onSave: function(clickEvent) {
@@ -68,18 +82,62 @@ mixtape.SongView = Backbone.View.extend({
 });
 
 
+mixtape.MixtapeView = Backbone.View.extend({
+	el: $('.mixtape'),
+
+	events: {
+		"click .add-song": "onAddSong",
+	},
+
+	initialize: function(songList) {
+		this.songList = songList;
+		this.listenTo(this.songList, "update", this.render);
+	},
+
+	render: function() {
+		this.$('.song-list').empty();
+
+		for (var i = 0; i < this.songList.length; i++) {
+			var song = this.songList.at(i);
+			var view = new mixtape.SongView({
+				model: song
+			});
+			view.render();
+			this.$(".song-list").append(view.el);
+
+			// newParagraph = $("<p> blah </p>");
+			// $(".essay").append(newParagraph);
+		}
+	},
+
+	onAddSong: function() {
+		console.log("onAddSong");
+		this.songList.add({name: "", artist: ""});
+	}
+});
+
+
 $(document).ready(function(){
 	song = new mixtape.Song({
 		name: "Poison",
 		artist: "Alice Cooper"
 	});
 
-	var songView = new mixtape.SongView({
-		model: song,
-		el: $(".song")
+	song2 = new mixtape.Song({
+		name: "Song 2",
+		artist: "Blur"
 	});
 
-	songView.render();
+	songList = new mixtape.SongList([song, song2]);
+	mixtapeView = new mixtape.MixtapeView(songList);
+	mixtapeView.render();
+
+	// var songView = new mixtape.SongView({
+	// 	model: song,
+	// 	el: $(".song")
+	// });
+
+	// songView.render();
 
 });
 
