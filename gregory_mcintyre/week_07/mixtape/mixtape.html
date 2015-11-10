@@ -3,30 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mixtape</title>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="mixtape.css">
 </head>
 <body>
-	<h1>Mixtape</h1>
-
-	<div class="mixtape">
-		<p>
-			<button class="add-song">Add Song</button>
-		</p>
-		<div class="song-list">
+	<div class="container">
+		<h1>Mixtape</h1>
+		<div class="mixtape">
+			<div class="mixtape-buttons">
+				<button class="add-song">Add Song</button>
+			</div>
+			<div class="song-list">
+			</div>
 		</div>
 	</div>
 
 	<script type="text/template" id="song-template">
 
 		<div class="viewing">
-			<%= name %> - <%= artist %>
-			<!-- <button class="edit-song">Edit</button> -->
+			<span class="name-and-artist">
+				<span class="name"><%= name %></span>
+				<span class="artist"><%= artist %></span>
+			</span>
+			<span class="buttons">
+				<!-- <button class="edit-song">Edit</button> -->
+				<button class="remove-song">&cross;</button>
+			</span>
 		</div>
 
 		<div class="editing">
 			<input type="text" class="name-input" placeholder="Name" value="<%= name %>"></input>
 			<input type="text" class="artist-input" placeholder="Artist" value="<%= artist %>"></input>
-			<button class="save-song">Save</button>
+			<span class="buttons">
+				<button class="save-song">Save</button>
+			</span>
 		</div>
 
 	</script>
@@ -34,6 +44,11 @@
 	<script src="jquery-2.1.4.min.js"></script>
 	<script src="underscore-min.js"></script>
 	<script src="backbone-min.js"></script>
+
+	<script src="models/song.js"></script>
+	<script src="collections/songlist.js"></script>
+	<script src="views/songview.js"></script>
+	<script src="views/mixtapeview.js"></script>
 	<script src="mixtape.js"></script>
 </body>
 </html>
