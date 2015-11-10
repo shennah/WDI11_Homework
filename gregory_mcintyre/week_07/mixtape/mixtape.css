@@ -58,10 +58,6 @@ button:active {
 	height: 25px;
 }
 
-.song:hover {
-	background-color: black;
-	color: white;
-}
 
 .song .editing {
 	display: none;
