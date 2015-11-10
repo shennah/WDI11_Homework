@@ -34,7 +34,13 @@ mixtape.SongView = Backbone.View.extend({
 
 	events: {
 		"click .save-song": "onSave",
-		"click .viewing": "onEdit",
+		"click .name-and-artist": "onEdit",
+		"click .remove-song": "onRemove",
+	},
+
+	onRemove: function() {
+		console.log("onRemove");
+		this.model.destroy();
 	},
 
 	initialize: function() {
@@ -104,15 +110,12 @@ mixtape.MixtapeView = Backbone.View.extend({
 			});
 			view.render();
 			this.$(".song-list").append(view.el);
-
-			// newParagraph = $("<p> blah </p>");
-			// $(".essay").append(newParagraph);
 		}
 	},
 
 	onAddSong: function() {
 		console.log("onAddSong");
-		this.songList.add({name: "", artist: ""});
+		this.songList.unshift({name: "", artist: ""});
 	}
 });
 

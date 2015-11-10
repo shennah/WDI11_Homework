@@ -52,12 +52,22 @@ button:active {
  */
 
 .song {
-	cursor: pointer;
 	border-bottom: 1px solid #bbb;
 	overflow: hidden; /* clearfix */
-	height: 25px;
+	position: relative;
+	padding-right: 40px;
 }
 
+.song .name-and-artist {
+	cursor: pointer;
+}
+
+.song .buttons {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
 
 .song .editing {
 	display: none;

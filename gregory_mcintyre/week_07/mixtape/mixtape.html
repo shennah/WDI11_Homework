@@ -19,14 +19,21 @@
 	<script type="text/template" id="song-template">
 
 		<div class="viewing">
-			<%= name %> - <%= artist %>
-			<!-- <button class="edit-song">Edit</button> -->
+			<span class="name-and-artist">
+				<%= name %> - <%= artist %>
+			</span>
+			<span class="buttons">
+				<!-- <button class="edit-song">Edit</button> -->
+				<button class="remove-song">&cross;</button>
+			</span>
 		</div>
 
 		<div class="editing">
 			<input type="text" class="name-input" placeholder="Name" value="<%= name %>"></input>
 			<input type="text" class="artist-input" placeholder="Artist" value="<%= artist %>"></input>
-			<button class="save-song">Save</button>
+			<span class="buttons">
+				<button class="save-song">Save</button>
+			</span>
 		</div>
 
 	</script>
