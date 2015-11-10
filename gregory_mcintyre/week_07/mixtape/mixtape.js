@@ -1,4 +1,3 @@
-var mixtape = mixtape || {};
 
 $(document).ready(function(){
 	song = new mixtape.Song({
@@ -14,19 +13,4 @@ $(document).ready(function(){
 	songList = new mixtape.SongList([song, song2]);
 	mixtapeView = new mixtape.MixtapeView(songList);
 	mixtapeView.render();
-
-	// var songView = new mixtape.SongView({
-	// 	model: song,
-	// 	el: $(".song")
-	// });
-
-	// songView.render();
-
 });
-
-
-
-
-
-
-
