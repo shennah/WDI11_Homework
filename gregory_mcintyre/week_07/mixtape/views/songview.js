@@ -11,6 +11,11 @@ mixtape.SongView = Backbone.View.extend({
 		"click .save-song": "onSave",
 		"click .name-and-artist": "onEdit",
 		"click .remove-song": "onRemove",
+		"click .show-lyrics": "onShowLyrics",
+	},
+
+	onShowLyrics: function() {
+		mixtape.router.navigate("songs/" + this.model.cid, true);
 	},
 
 	onRemove: function() {
