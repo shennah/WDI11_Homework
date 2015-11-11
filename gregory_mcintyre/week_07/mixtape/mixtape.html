@@ -9,11 +9,20 @@
 <body>
 	<div class="container">
 		<h1>Mixtape</h1>
-		<div class="mixtape">
-			<div class="mixtape-buttons">
-				<button class="add-song">Add Song</button>
+
+		<div class="page song-list-page">
+			<div class="mixtape">
+				<div class="mixtape-buttons">
+					<button class="add-song">Add Song</button>
+				</div>
+				<div class="song-list">
+				</div>
 			</div>
-			<div class="song-list">
+		</div>
+
+		<div class="page song-lyrics-page">
+			<a href="#">Song List</a>
+			<div class="song-lyrics">
 			</div>
 		</div>
 	</div>
@@ -27,6 +36,7 @@
 			</span>
 			<span class="buttons">
 				<!-- <button class="edit-song">Edit</button> -->
+				<button class="show-lyrics">Lyrics</button>
 				<button class="remove-song">&cross;</button>
 			</span>
 		</div>
@@ -40,15 +50,28 @@
 		</div>
 
 	</script>
-	
+
+	<script type="text/template" id="song-lyrics-template">
+		<h1><%= name %> by <%= artist %></h1>
+		<pre class="song-lyrics">
+			<%= lyrics %>
+		</pre>
+	</script>
+
 	<script src="jquery-2.1.4.min.js"></script>
 	<script src="underscore-min.js"></script>
 	<script src="backbone-min.js"></script>
 
 	<script src="models/song.js"></script>
+	
 	<script src="collections/songlist.js"></script>
+
 	<script src="views/songview.js"></script>
 	<script src="views/mixtapeview.js"></script>
+	<script src="views/songlyricsview.js"></script>
+
+	<script src="routers/router.js"></script>
+
 	<script src="mixtape.js"></script>
 </body>
 </html>
