@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flickr R Cool</title>
+	<style>
+		.search-results .photo { vertical-align: top; }
+	</style>
+</head>
+<body>
+	<form class="search-form">
+		<input type="text" class="search-input"></input>
+		<input type="submit" value="Search"></input>
+	</form>
+
+	<hr>
+
+	<div class="search-results">
+	</div>
+
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+		function imageUrl(photo, size) {
+			// https://www.flickr.com/services/api/misc.urls.html
+			return "https://farm" + 
+				photo.farm + ".staticflickr.com/" + 
+				photo.server + "/" +
+				photo.id + "_" +
+				photo.secret + "_" + 
+				size + ".jpg";
+		}
+
+		function displayPhotos(data) {
+			var photosArray = data["photos"]["photo"];
+			for (var i = 0; i < photosArray.length; i++) {
+				var photo = photosArray[i];
+				var image = $('<img class="photo">');
+				image.attr("src", imageUrl(photo, "s"));
+				$(".search-results").append(image);
+			}
+		}
+
+		$(".search-form").on("submit", function(event){
+			event.preventDefault();
+
+			var text = $(".search-input").val();
+
+			$.ajax({
+				url: "https://api.flickr.com/services/rest/",
+				type: "GET",
+				dataType: "jsonp",									// http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about
+				jsonp: "jsoncallback", 								// https://www.flickr.com/services/api/response.json.html
+				data: {
+					method: "flickr.photos.search",  				// https://www.flickr.com/services/api/flickr.photos.search.html
+					api_key: "0f22f51640ea8a231f4f054db5d14ef8",	// https://www.flickr.com/services/api/misc.api_keys.html
+					text: text,
+					format: "json"
+				},
+				success: function(data) {
+					console.log("success", data);
+					displayPhotos(data);
+				},
+				error: function(xhr, status, message) {
+					console.log("error", status, message);
+				},
+ 			});
+
+		});
+	</script>
+</body>
+</html>
