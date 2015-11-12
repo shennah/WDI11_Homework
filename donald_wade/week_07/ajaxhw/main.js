@@ -56,9 +56,9 @@ function getOnWithIt(pageNumber) {
 
       success: function(data) {
         console.log("success", data);
-
         displayData(data);
       },
+
       error: function(xhr, status, message) {
         console.log("error", status, message);
       }
@@ -70,6 +70,14 @@ $(".search-button").on("click", function() {
   $(".search-results").empty();
   getOnWithIt(tally);
   tally.increment();
+});
+
+$(".search-input").keydown(function(event) {
+  if (event.keyCode == 13) {
+    $(".search-results").empty();
+    getOnWithIt(tally);
+    tally.increment();
+  }
 });
 
 
