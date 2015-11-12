@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Doughnuts? It's LUNCH TIME</title>
+</head>
+<body>
+
+	<form id="searchform">
+		<input type="text" name="s" value="crazy love">
+		<input type="submit">
+	</form>
+
+	<script src="jquery-2.1.4.min.js"></script>
+	
+	<script>
+	
+	$.ajax({
+		url: "http://api.doughnuts.ga/doughnuts",
+		type: "GET",
+		data: {},
+		dataType: "json",
+		success: function(data){
+			console.log("success", data);
+		},
+		error: function(xhr, status, errorMessage) {
+			console.log("error", status, errorMessage);
+		},
+		complete: function(xhr, status) {
+			console.log("complete", status);
+		},
+	});
+
+
+	$.ajax({
+		url: "http://api.doughnuts.ga/doughnuts",
+		type: "GET",
+		data: {},
+		dataType: "json"
+	}).done(function(data){
+		console.log("done", data);
+	}).fail(function(xhr, status, errorMessage){
+		console.log("fail", status, errorMessage);
+	}).always(function(xhr, status){
+		console.log("always", status);
+	});
+
+
+	$.getJSON("http://www.omdbapi.com", {s: "Love"}, function(data){
+		console.log(data);
+	});
+	
+
+	// $.get
+	// $.getJSON
+	// $.post
+
+	var data = $("#searchform").serialize();
+	console.log(data);
+
+	</script>
+</body>
+</html>
