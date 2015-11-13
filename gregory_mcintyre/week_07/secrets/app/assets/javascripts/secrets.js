@@ -11,17 +11,19 @@
 
 var app = app || {};
 
-$(document).ready(function(){
-
+app.init = function() {
 	app.secrets = new app.Secrets();
-	app.secrets.fetch();
+	app.view = new app.AppView(app.secrets);
 
-	var appView = new app.AppView({collection: app.secrets});
-	appView.render();
-
-    // Poll the server for new secrets every 4 seconds.
-    setInterval(function () {
-      app.secrets.fetch();
-    }, 4000); // 4 seconds
-
-});
+	app.secrets.fetch({
+		success: function() {
+			// Poll the server for new secrets every 4 seconds.
+			setInterval(function () {
+				app.secrets.fetch();
+			}, 4000); // 4 seconds
+		},
+		error: function() {
+			console.log('error loading secrets');
+		}
+	});
+};
