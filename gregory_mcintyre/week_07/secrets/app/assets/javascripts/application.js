@@ -20,3 +20,8 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require secrets
+//= require_self
+
+$(document).ready(function(){
+	app.init();
+});

@@ -1,13 +1,26 @@
 var app = app || {};
 
 app.AppView = Backbone.View.extend({
-	el: '#main',
+	el: '#app',
 
-	render: function() {
-		var template = $('#appViewTemplate').html();
-		this.$el.html(template);
+	events: {
+		'submit .secret-form': 'onSubmit',
+	},
 
-		var formView = new app.SecretInputView();
-		formView.render();
+	initialize: function(collection) {
+		collection.on('add', function(secret){
+			var view = new app.SecretView({model: secret});
+			view.render();
+		});
+	},
+
+	onSubmit: function(event) {
+		// don't do the normal form submit behaviour
+        event.preventDefault(); 
+
+        var $textarea = $(event.target).find('.secret-content input');
+		var content = $textarea.val();
+		$textarea.val('').focus();
+		app.secrets.create({content: content});
 	}
 });
