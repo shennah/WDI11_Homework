@@ -10,7 +10,7 @@ app.AppView = Backbone.View.extend({
 	},
 
 	initialize: function(collection) {
-		collection.on('add', function(secret){
+		this.listenTo(collection, 'add', function(secret){
 			var view = new app.SecretView({model: secret});
 			view.render();
 		});
