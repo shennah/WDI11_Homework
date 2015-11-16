@@ -9,12 +9,9 @@ $(document).ready(function(){
 	console.log("ready");
 
 	app.blogPosts = new app.Posts();
-	app.blogPosts.fetch({
-		complete: function(){
-			var router = new app.Router();
-			Backbone.history.start();
-		}
+	app.blogPosts.fetch().done(function(){
+		var router = new app.Router();
+		Backbone.history.start();
 	});
-
 
 });
