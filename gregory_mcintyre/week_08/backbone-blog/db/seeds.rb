@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+post = Post.where(title: "Foo").first_or_create
+comment1 = post.comments.where(content: "This sux").first_or_create
+comment2 = post.comments.where(content: "Nah yeah it's good").first_or_create
