@@ -9,6 +9,17 @@ app.AppView = Backbone.View.extend({
 		this.$el.html("<h1>My Embarrassing Family</h1>");
 
 		var listElem = $("<div/>").addClass("post-item-list");
+
+		// for (var i = 0; i < this.collection.length; i++) {
+		// 	var post = this.collection.at(i);
+
+		// 	// all the same things
+		// 	var a = $("<a/>").
+		// 		attr("href", "#posts/" + post.cid).
+		// 		text(post.get("title"));
+		// 	// ...
+		// }
+
 		this.collection.each(function(post){
 			var a = $("<a/>").
 				attr("href", "#posts/" + post.cid).
