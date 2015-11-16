@@ -17,13 +17,12 @@ app.PostView = Backbone.View.extend({
 
 		// fetch comments
 		var comments = new app.Comments([], this.model);
-		comments.fetch({
-			complete: function() {
-				comments.each(function(comment){
-					var commentElem = $("<li/>").addClass("comment").text(comment.get("content"));
-					commentsList.append(commentElem);
-				});
-			}
+		comments.fetch().done(function(){
+			console.log("here");
+			comments.each(function(comment){
+				var commentElem = $("<li/>").addClass("comment").text(comment.get("content"));
+				commentsList.append(commentElem);
+			});
 		});
 	},
 });
