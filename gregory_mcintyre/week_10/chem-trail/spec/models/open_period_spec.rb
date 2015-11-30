@@ -14,10 +14,28 @@
 require 'rails_helper'
 
 RSpec.describe OpenPeriod, type: :model do
+  subject(:period) { OpenPeriod.new(day: day, time_from: time_from, time_to: time_to) }
+
   describe '#formatted' do
-    it 'should format the output as "Monday 9:00 AM - 5:00 PM" given the day is Monday, and the times are 9-5' do
-      period = OpenPeriod.new(day: "Monday", time_from: "09:00", time_to: "17:00")
-      expect(period.formatted).to eq "Monday: 9:00 AM - 5:00 PM"
+    context "given Monday, 9 to 5" do
+      let(:day) { "Monday" }
+      let(:time_from) { "09:00" }
+      let(:time_to) { "17:00" }
+
+      it 'should format the output as "Monday: 9:00 AM - 5:00 PM"' do
+        expect(period.formatted).to eq "Monday: 9:00 AM - 5:00 PM"
+      end
     end
+
+    context "when closing at 11 PM" do
+      let(:day) { "Monday" }
+      let(:time_from) { "09:00" }
+      let(:time_to) { "23:00" }
+
+      it 'should format the output as "Monday: 9:00 AM - 11:00 PM"' do
+        expect(period.formatted).to eq "Monday: 9:00 AM - 11:00 PM"
+      end
+    end
+
   end
 end

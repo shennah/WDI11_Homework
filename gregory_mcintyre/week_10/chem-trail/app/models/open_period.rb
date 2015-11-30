@@ -20,7 +20,9 @@ class OpenPeriod < ActiveRecord::Base
   validates :time_to, presence: true
 
   def formatted
-    #return "Monday: 9:00 AM - 5:00 PM"
+    t1 = time_from.strftime('%l:%M %p').strip
+    t2 = time_to.strftime('%l:%M %p').strip
+    "#{day}: #{t1} - #{t2}"
   end
 
   def covers?(time = Time.now)
