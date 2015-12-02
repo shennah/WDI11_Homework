@@ -1,15 +1,13 @@
+srand(2)
+
 people = %w(Yilan Charley Andrew Daisy Donald Shennah Eric)
 people.shuffle!
 
-groups = [[],[],[]]
-index = 0
+num_groups = 3
+groups = Array.new(3) { [] }
 
-people.each do |person|
-  group = groups[index]
-  group.push(person)
-  index += 1
-  index = (index % groups.size)
+people.each_with_index do |person, index|
+  groups[index % groups.size].push(person)
 end
 
-require 'pp'
-pp groups
+require 'pp'; pp groups
