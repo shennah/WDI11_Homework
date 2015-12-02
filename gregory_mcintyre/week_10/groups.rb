@@ -1,3 +1,6 @@
+gem 'colorize'
+require 'colorize'
+
 srand(2)
 
 people = %w(Yilan Charley Andrew Daisy Donald Shennah Eric)
@@ -10,4 +13,8 @@ people.each_with_index do |person, index|
   groups[index % groups.size].push(person)
 end
 
-puts groups.map{|x| x.join(", ")}
+colors = %w(blue red green)
+
+groups.each_with_index do |group, index|
+  puts group.join(", ").send(colors[index % colors.size])
+end
