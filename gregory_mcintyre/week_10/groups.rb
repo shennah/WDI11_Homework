@@ -1,7 +1,8 @@
 gem 'colorize'
 require 'colorize'
+require 'date'
 
-srand(ARGV.first.to_i)
+srand Date.today.yday
 
 people = %w(Yilan Charley Andrew Daisy Donald Shennah Eric)
 people.shuffle!
