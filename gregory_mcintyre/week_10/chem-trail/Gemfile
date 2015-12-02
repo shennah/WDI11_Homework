@@ -53,14 +53,26 @@ group :development do
 end
 
 # Monday
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'simplecov', require: false   # we will require 'simplecov' ourselves
   gem 'factory_girl_rails'
 end
 
-# Tuesday
+# Tuesday, part 1
 
 group :test, :development do
   gem 'capybara' # fill_in forms and click_button
 end
+
+# Tuesday, part 2
+
+gem 'nested_form'
+gem 'puma'                 # faster web server for acceptance tests
+group :test, :development do
+  gem 'selenium-webdriver' # remote control for Firefox
+  gem 'database_cleaner'   # conveniently truncate tables
+  gem 'launchy'            # like "open" on the command prompt - enables the command save_and_open_page
+end
+
