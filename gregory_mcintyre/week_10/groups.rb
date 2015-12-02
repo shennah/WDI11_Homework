@@ -13,8 +13,7 @@ people.each_with_index do |person, index|
   groups[index % groups.size].push(person)
 end
 
-srand
-colors = String.colors.reject{|x| x.to_s =~ /light|default|white/ }.shuffle
+colors = String.colors.reject { |x| x.to_s =~ /light|default|white/ }.shuffle
 
 letter = 'A'
 groups.each_with_index do |group, index|
