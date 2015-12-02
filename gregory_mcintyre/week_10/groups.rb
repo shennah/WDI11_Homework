@@ -10,4 +10,4 @@ people.each_with_index do |person, index|
   groups[index % groups.size].push(person)
 end
 
-require 'pp'; pp groups
+puts groups.map{|x| x.join(", ")}
