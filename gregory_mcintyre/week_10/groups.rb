@@ -1,7 +1,7 @@
 gem 'colorize'
 require 'colorize'
 
-srand(2)
+srand(ARGV.first.to_i)
 
 people = %w(Yilan Charley Andrew Daisy Donald Shennah Eric)
 people.shuffle!
