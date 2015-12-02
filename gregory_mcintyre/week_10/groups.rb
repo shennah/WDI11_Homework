@@ -16,5 +16,5 @@ end
 colors = %w(blue red green)
 
 groups.each_with_index do |group, index|
-  puts group.join(", ").send(colors[index % colors.size])
+  puts group.join(', ').send(colors[index % colors.size])
 end
