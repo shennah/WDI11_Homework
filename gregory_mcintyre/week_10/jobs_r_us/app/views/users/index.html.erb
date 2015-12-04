@@ -2,6 +2,20 @@
 
 <h1>Listing Users</h1>
 
+<%= form_tag users_path, method: :get do %>
+  <div>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
+  </div>
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name %>
+  </div>
+  <p>
+    <%= submit_tag 'Search' %>
+  </p>
+<% end %>
+
 <table>
   <thead>
     <tr>
