@@ -22,14 +22,12 @@
 # You'd also be able to answer whether the queens can attack each other.
 # In this case, that answer would be yes, they can,
 # because both pieces share a diagonal.
-
+#
 class Queens
   attr_reader :white, :black
 
   def initialize(white: [0, 3], black: [7, 3])
-    if white == black
-      raise ArgumentError, "Occupying the same space"
-    end
+    white == black && fail(ArgumentError, 'Occupying the same space')
     @white = white
     @black = black
   end
@@ -39,13 +37,22 @@ class Queens
   end
 
   def attack?
-    rank(white) == rank(black) ||
-      file(white) == file(black) ||
-      diagonal_positions(white).include?(black) ||
-      diagonal_positions(black).include?(white)
+    rank_attack? || file_attack? || diagonal_attack?
   end
 
   private
+
+  def rank_attack?
+    rank(white) == rank(black)
+  end
+
+  def file_attack?
+    file(white) == file(black)
+  end
+
+  def diagonal_attack?
+    diagonal_positions(white).include?(black)
+  end
 
   def board_s
     8.times.map { |rank| rank_s(rank) }.join("\n")
@@ -67,19 +74,25 @@ class Queens
     pos[1]
   end
 
+  DIAGONAL_OFFSETS = [
+    [-1, -1],
+    [-1,  1],
+    [1, -1],
+    [1,  1]
+  ]
+
   def diagonal_positions(pos)
     result = []
-    [
-      [-1, -1],
-      [-1,  1],
-      [ 1, -1],
-      [ 1,  1],
-    ].each do |dx, dy|
+    DIAGONAL_OFFSETS.each do |i, j|
       (1..7).each do |n|
-        result.push pos(rank(pos) + dx * n, file(pos) + dy * n)
+        result.push pos_offset(pos, i * n, j * n)
       end
     end
     result
+  end
+
+  def pos_offset(pos, dx, dy)
+    pos(rank(pos) + dx, file(pos) + dy)
   end
 
   def letter(pos)
