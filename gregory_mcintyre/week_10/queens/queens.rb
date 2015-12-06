@@ -59,7 +59,15 @@ class Queens
   end
 
   def rank_s(rank)
-    8.times.map { |file| letter(pos(rank, file)) }.join(' ')
+    8.times.map { |file| pos_s(pos(rank, file)) }.join(' ')
+  end
+
+  def pos_s(pos)
+    case pos
+    when white then 'W'
+    when black then 'B'
+    else 'O'
+    end
   end
 
   def pos(rank, file)
@@ -93,13 +101,5 @@ class Queens
 
   def pos_offset(pos, dx, dy)
     pos(rank(pos) + dx, file(pos) + dy)
-  end
-
-  def letter(pos)
-    case pos
-    when white then 'W'
-    when black then 'B'
-    else 'O'
-    end
   end
 end
