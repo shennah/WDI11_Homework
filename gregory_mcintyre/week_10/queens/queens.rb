@@ -42,6 +42,15 @@ class Queens
 
   private
 
+  BOARD_SIZE = 8
+
+  DIAGONAL_OFFSETS = [
+    [-1, -1],
+    [-1,  1],
+    [1, -1],
+    [1,  1]
+  ]
+
   def rank_attack?
     rank(white) == rank(black)
   end
@@ -55,11 +64,11 @@ class Queens
   end
 
   def board_s
-    8.times.map { |rank| rank_s(rank) }.join("\n")
+    (0...BOARD_SIZE).map { |rank| rank_s(rank) }.join("\n")
   end
 
   def rank_s(rank)
-    8.times.map { |file| pos_s(pos(rank, file)) }.join(' ')
+    (0...BOARD_SIZE).map { |file| pos_s(pos(rank, file)) }.join(' ')
   end
 
   def pos_s(pos)
@@ -82,17 +91,10 @@ class Queens
     pos[1]
   end
 
-  DIAGONAL_OFFSETS = [
-    [-1, -1],
-    [-1,  1],
-    [1, -1],
-    [1,  1]
-  ]
-
   def diagonal_positions(pos)
     result = []
     DIAGONAL_OFFSETS.each do |i, j|
-      (1..7).each do |n|
+      (1...BOARD_SIZE).each do |n|
         result.push pos_offset(pos, i * n, j * n)
       end
     end

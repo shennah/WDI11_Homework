@@ -67,4 +67,9 @@ O O O O O O O O
     assert queens.attack?
   end
 
+  def test_attack_diagonal_2
+    queens = Queens.new(white: [0, 3], black: [1, 2])
+    assert queens.attack?
+  end
+
 end
