@@ -4,7 +4,7 @@ require 'date'
 
 srand Date.today.yday
 
-people = %w(Yilan Charley Andrew Daisy Donald Shennah )
+people = %w(Yilan Charley Andrew Daisy Donald Shennah Eric)
 people.shuffle!
 
 num_groups = 3
