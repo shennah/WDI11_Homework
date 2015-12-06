@@ -1,6 +1,6 @@
 require 'time'
 
-deadline = Time.parse(ARGV.first)
+deadline = Time.parse(ARGV.first) rescue (Time.now + 60*60)
 
 while Time.now < deadline
   s = deadline - Time.now
