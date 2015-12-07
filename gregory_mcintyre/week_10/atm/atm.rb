@@ -86,6 +86,10 @@ describe 'atm' do
     it "should return #{expected.inspect} when $#{input} is withdrawn" do
       ATM.new.withdraw(input).must_equal expected
     end
+
+    it "should return #{expected.inspect} when $#{input} is withdrawn" do
+      ATM.new.withdraw_loop(input).must_equal expected
+    end
   end
 
   [
@@ -95,18 +99,4 @@ describe 'atm' do
       ATM.new.withdraw(input, notes: [28, 15, 5, 1]).must_equal expected
     end
   end
-
-  [
-    [0, []],
-    [20, [20]],
-    [70, [50, 20]],
-    [-10, nil],
-    [80, [20, 20, 20, 20]],
-    [130, [50, 20, 20, 20, 20]],
-  ].each do |input, expected|
-    it "should return #{expected.inspect} when $#{input} is withdrawn" do
-      ATM.new.withdraw_loop(input).must_equal expected
-    end
-  end
-
 end
