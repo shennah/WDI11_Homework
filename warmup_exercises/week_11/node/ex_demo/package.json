@@ -2,14 +2,18 @@
   "name": "ex_demo",
   "version": "1.0.0",
   "description": "demo for node and express",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [
     "node",
     "express"
   ],
   "author": "Tanya Butenko",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "hbs": "^4.0.0",
+    "path": "^0.12.7"
+  }
 }
