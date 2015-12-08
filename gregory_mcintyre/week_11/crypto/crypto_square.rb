@@ -69,29 +69,28 @@ class Crypto
   end
 
   def normalize_plaintext
-    @input.gsub(/[^a-zA-Z0-9]/, '').downcase
+    @normalize_plaintext ||= @input.gsub(/[^a-zA-Z0-9]/, '').downcase
   end
 
   def size
-    Math.sqrt(normalize_plaintext.size).ceil
+    @size ||= Math.sqrt(normalize_plaintext.size).ceil
   end
 
   def plaintext_segments
-    normalize_plaintext.chars.each_slice(size).map(&:join)
+    @plaintext_segments ||= normalize_plaintext.chars.each_slice(size).map(&:join)
   end
 
   def ciphertext
-    segs = plaintext_segments
-    result = []
-    (0..size).each do |i|
-      segs.each do |seg|
-        result << seg[i] if seg[i]
-      end
-    end
-    result.join
+    @ciphertext ||= (0..size).map { |i| ciphertext_column(i) }.join
   end
 
   def normalize_ciphertext
-    ciphertext.chars.each_slice(5).map(&:join).join(' ')
+    @normalize_ciphertext ||= ciphertext.chars.each_slice(5).map(&:join).join(' ')
+  end
+
+  private
+
+  def ciphertext_column(i)
+    plaintext_segments.map { |s| s[i] }.compact
   end
 end
