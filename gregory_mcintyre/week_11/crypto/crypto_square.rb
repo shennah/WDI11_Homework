@@ -77,6 +77,7 @@ class Crypto
   end
 
   def plaintext_segments
+    # NB: map(&:join) is the same as map { |x| x.join }
     @plaintext_segments ||= normalize_plaintext.chars.each_slice(size).map(&:join)
   end
 
@@ -91,6 +92,6 @@ class Crypto
   private
 
   def ciphertext_column(i)
-    plaintext_segments.map { |s| s[i] }.compact
+    plaintext_segments.map { |s| s[i] }.compact     # arr.compact removes nils from an arr
   end
 end
