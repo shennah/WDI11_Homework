@@ -1,0 +1,16 @@
+{
+  "name": "socket-chat-example",
+  "version": "0.0.1",
+  "description": "my first websocket app",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-ws": "^0.2.6"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
