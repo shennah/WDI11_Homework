@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat room</title>
+</head>
+<body>
+	<form id="chatform">
+		<input type="text" id="m" />
+		<button>Send</button>
+	</form>
+	<ul id="messages">
+	</ul>
+ 	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+
+	<script>
+	var socket = new WebSocket('ws://'+ window.location.hostname +':33250/');
+
+	$('#m').focus();
+	$('#chatform').submit(function(e){
+		e.preventDefault();
+		var msg = $('#m').val();
+		socket.send(msg);
+		$('#m').val('');
+	});
+
+	socket.onopen = function() {
+		console.log("Connected to server");
+	};
+
+	socket.onclose = function(e) {
+		console.log("Closed:", e);
+	}
+
+	socket.onmessage = function(e) {
+		console.log("Message:", e.data);
+
+		// add incoming message to the chat room list
+		var li = $('<li>').text(e.data);
+		$('#messages').append(li);
+	};
+
+	// socket.onerror
+
+	</script>
+	
+</body>
+</html>
