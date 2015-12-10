@@ -1,0 +1,61 @@
+* {
+  /*border: 1px dotted red;*/
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.box {
+  font-size: 3em;
+  padding: 5%;
+  width: 50vw;
+  height: 50vh;
+  transition: all 0.8s ease;
+}
+
+.one {
+  background-color: green;
+  display: inline;
+  float: left;
+  transition: all 0.5s ease;
+
+}
+.box:hover {
+  background-color: white;
+
+}
+.two {
+  background-color: yellow;
+  float: right;
+}
+.three {
+  clear: both;
+  background-color: blue;
+  float: left;
+}
+.four {
+  background-color: red;
+  float: right;
+}
+
+.appearing {
+  opacity: 0;
+  transition: all 0.8s ease;
+  cursor: text;
+}
+
+.appearing:hover {
+  opacity: 1;
+}
+
+
+
+img {
+  max-width: 30vw;
+  max-height: 40vh;
+  display: block;
+  margin: auto;
+  padding: 5%;
+}

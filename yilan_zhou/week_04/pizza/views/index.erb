@@ -1,0 +1,11 @@
+<ul>
+	<%if @pizzas != nil %>
+	<% @pizzas.each do |record| %>
+	<li class="pizza">
+	<a href="/<%= record["id"] %>"><%= record["name"] %></a>
+	</li>
+	<% end %>
+	<% end %>
+</ul>
+<p>
+	<a href="/new"> add a new pizza </a>

@@ -1,0 +1,33 @@
+<html>
+  <body>
+
+    <button id="myButton">Click me yo</button>
+
+    <script>
+
+console.log("hello friday");
+
+console.log(this); // this === window
+
+var doSomething = function() {
+  console.log(this); // this === window
+}
+doSomething();
+
+var person = {
+  name: "Greg",
+  greet: function() {
+    console.log("hello", this.name); // this === person
+  }
+};
+person.greet();
+
+
+var button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+  console.log(this); // this === button
+});
+
+    </script>
+  </body>
+</html>

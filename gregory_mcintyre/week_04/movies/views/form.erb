@@ -1,0 +1,17 @@
+<p>Please type in a movie title:</p>
+
+<form>
+	<input type="text" name="title">
+	<input type="submit">
+</form>
+
+<% if @search_results %>
+
+	<% @search_results.each do |result| %>
+		<div>
+			Title: <%= result["Title"] %>
+			Year: <%= result["Year"] %>
+			Poster: <img src="<%= result["Poster"] %>">
+		</div>
+	<% end %>
+<% end %>

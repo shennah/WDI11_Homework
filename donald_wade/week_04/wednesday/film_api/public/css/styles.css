@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  /*border: 1px solid red;*/
+}
+
+.container {
+  min-height: 90vh;
+  padding: 5%;
+  box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.75);
+}
+
+H1 {
+  text-align: center;
+}
+
+body {
+  font-family: 'Special Elite', cursive;
+  max-width: 50%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+
+.type_box {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid lightgrey;
+  font-family: 'Special Elite', cursive;
+  font-size: 24px;
+}
+
+.search_box {
+}
+
+.my_image {
+  margin: 20px;
+  padding: 10px;
+  height: 300px;
+  width: 200px;
+  box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.75);
+}
+
+img {
+  height: auto;
+}
+
+.button {
+  margin-top: 10px;
+  background-color: yellow;
+  padding: 10px;
+  width: 100%;
+  font-family: 'Special Elite', cursive;
+  font-size: 24px;
+  if params["your_search"]["Response"] != "False";
+}
+
+#my_button {
+  border: none;
+}
+
+.images {
+  margin: 0 auto
+}
+
+.message {
+  padding: 10px;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.nav {
+  margin: 20px;
+  padding: 10px;
+  text-align: left;
+}

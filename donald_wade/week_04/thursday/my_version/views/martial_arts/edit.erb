@@ -1,0 +1,15 @@
+<h1>Edit record</h1>
+
+<form action="/martial_arts/<%= @martial_art["id"] %>" method="POST">
+  <input type="text" name="martial_art" placeholder="Name" value="<%= @martial_art["martial_art"] %>">
+  <br>
+  <input type="text" name="country_of_origin" placeholder="Country of origin" value="<%= @martial_art["country_of_origin"] %>">
+  <br>
+  <input type="text" name="style" placeholder="Style" >
+  <br>
+  <input type="text" name="notes" placeholder="Notes" value="<%= @martial_art["notes"] %>">
+  <br>
+  <br>
+
+  <input type="submit">
+</form>

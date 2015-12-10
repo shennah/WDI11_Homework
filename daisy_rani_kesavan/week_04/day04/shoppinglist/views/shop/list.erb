@@ -1,0 +1,9 @@
+<h3>Shopping List</h3>
+<ul>
+	<% @shop.each do |record| %>
+	<li class="shop">
+	<a href="/shop/<%= record["product_code"] %>"><%= record["product_name"] %></a>
+	</li>
+	<% end %>
+</ul>
+<a href='/shop'>Back</a>

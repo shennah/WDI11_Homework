@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Title</title>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+
+    <h1>Heading</h1>
+
+    <table>
+      <tr class="even">
+        <td>1</td><td>2</td>
+      </tr>
+      <tr class="odd">
+        <td>1</td><td>2</td>
+      </tr>
+      <tr class="even">
+        <td>1</td><td>2</td>
+      </tr>
+      <tr class="odd">
+        <td>1</td><td>2</td>
+      </tr>
+    </table>
+
+    <p id="p1" class="first-comment comment">
+      In the beginning, the land was divided between two <a href="#">brothers</a>...
+    </p>
+
+    <ul>
+      <li>
+        two <a href="#">brothers</a>...
+      </li>
+    </ul>
+
+    <p id="p2" class="comment">
+      The quick brown <a href="#">fox</a>...
+    </p>
+
+    <p id="p2" class="comment">
+      The quick brown <a href="#">fox</a>...
+    </p>
+
+    <style>
+
+      /* paragraph tags look like this */
+      p { background-color: blue; color: white; }
+
+      /* links inside paragraphs */
+      p a { color: yellow; }
+
+      /* links *directly* inside paragraphs */
+      ul > a { color: red; }
+
+      /* table rows that are marked as class="odd" */
+      tr.odd { background-color: #eee; }
+
+      /* filters */
+      p:hover { background-color: grey; } /* only paragraphs that the mouse is hovering over */
+      p:not(.first-comment) { font-size: 20px; } /* only paragraphs that lack the first-comment class */
+
+      /* siblings */
+      p + p { border: 2px solid green; }
+    </style>
+  </body>
+</html>

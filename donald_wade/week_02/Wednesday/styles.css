@@ -1,0 +1,7 @@
+body {
+  background-color: lightyellow;
+}
+
+.cat {
+  transform: scale(-1, 1);
+}

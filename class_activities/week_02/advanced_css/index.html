@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced CSS</title>
+</head>
+<body>
+<p>My essay 1 2 3</p>
+<blockquote>
+  The best men are men at best.
+  -- Person who said that.
+</blockquote>
+<p>My essay 1 2 3</p>
+<div class="box box1">1</div>
+<div class="box box2">2
+  <button class="button">Fullscreen</button>
+</div>
+<div class="box box3">3</div>
+<div class="box box4">4</div>
+<div class="box box5">5</div>
+
+<style>
+/*in the body we can set some settings that whole page will follow, unless overwritten */
+  body{
+    font-size: 40px;
+    font-family: cursive;
+  }
+
+  .box{
+    /*by default div's have block display, but we can change it:*/
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    color: white;
+    font-size: 40px;
+    border: 2px dashed black;
+  }
+
+  .box1 {
+    display: none;
+  }
+
+  .box2 {
+    /*relative position moves element not touching any other elements*/
+    position: relative;
+    top: 40px;
+  }
+
+  .box .button {
+    /*our position is not related to box2, as we have absolute positioning for our button inside of box2, but box2 position should be relative, otherwise our button will be located related to whole body*/
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+
+  /*show/hide stuff*/
+  .box .button {
+    display: none;
+  }
+
+  .box:hover .button {
+    display: inline-block; 
+  }
+
+  .box3 {
+    /*absolute doesn't reserve a space on the document, locates according to nearest relative element*/
+    position: absolute;
+    background-color: cyan;
+    width: 50px;
+    height: 50px;
+  }
+
+  .box4 {
+    /*if we scroll page up/down our box4 will stay same place we put it to*/
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+
+
+</style>
+  
+</body>
+</html>

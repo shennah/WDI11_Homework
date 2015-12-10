@@ -1,0 +1,17 @@
+<h1>Magic 8 ball of predictive Awesomeness</h1>
+<!-- <p>Find me in app/views/games/magic_8.html.erb</p> -->
+
+<%= form_tag(games_answer_path, method: "POST", class: "my_form") do %>
+
+<%= text_field_tag "name", nil, placeholder: "What is your name?", autocomplete: "off" %>
+<br>
+
+<%= text_field_tag "question", nil, placeholder: "What is your question?", autocomplete: "off" %>
+
+<br>
+<!-- <%= text_area_tag(:message, "Hi", size:"24x6") %> -->
+<div class="button_holder">
+  <%= submit_tag "Submit your question to the Oracle of Delphi", class: "my_button" %>
+</div>
+
+<% end %>

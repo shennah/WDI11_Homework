@@ -1,0 +1,12 @@
+
+Planet
+* id - integer (automatically added by Rails)
+* name - string REQUIRED
+* image - url string
+* num_moons - integer default 0
+* mean_radius - float
+* mass - float
+* orbit - km float
+
+* restful routes (resources :planets)
+

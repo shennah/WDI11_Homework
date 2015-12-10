@@ -1,0 +1,53 @@
+<%= form_for(@candidate) do |f| %>
+  <% if @candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+      <% @candidate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :recommendation1 %><br>
+    <%= f.text_field :recommendation1 %>
+  </div>
+  <div class="field">
+    <%= f.label :recommendation2 %><br>
+    <%= f.text_field :recommendation2 %>
+  </div>
+  <div class="field">
+    <%= f.label :recommendation3 %><br>
+    <%= f.text_field :recommendation3 %>
+  </div>
+  <div class="field">
+    <%= f.label :employer %><br>
+    <%= f.text_field :employer %>
+  </div>
+  <div class="field">
+    <%= f.label :work_history %><br>
+    <%= f.text_field :work_history %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

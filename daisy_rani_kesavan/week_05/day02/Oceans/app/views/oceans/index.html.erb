@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h1>Listing Oceans</h1>
+<table class="ocean-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Place</th>
+      <th>Area</th>
+      <th>Volume</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @oceans.each do |ocean| %>
+      <tr>
+        <td><%= ocean.name %></td>
+        <td><%= image_tag(ocean.image) %></td>
+        <td><%= ocean.place %></td>
+        <td><%= ocean.area %></td>
+        <td><%= ocean.volume %></td>
+        <td><%= link_to 'Show', ocean %></td>
+        <td><%= link_to 'Edit', edit_ocean_path(ocean) %></td>
+        <td><%= link_to 'Destroy', ocean, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ocean', new_ocean_path %>

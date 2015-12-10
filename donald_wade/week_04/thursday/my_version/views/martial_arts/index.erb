@@ -1,0 +1,13 @@
+<h1>Martial Arts</h1>
+
+<ul>
+  <% @martial_arts.each do |record| %>
+  <li>
+    <a href"/martial_arts/<%= record["id"] %>"><%= record["martial_art"] %></a>
+  </li>
+  <% end %>
+</ul>
+
+<p>
+  <a href="/martial_arts/new">Add a new entry</a>
+</p>

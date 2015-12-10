@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flickr</title>
+	<style>
+	img {
+		height: 100px;
+		width:auto;
+	}
+
+	</style>
+</head>
+<body>
+	<input type="text" class="search-input">
+	<button class="search-button">Search</button>
+	<br>
+
+	<div class="result">
+	
+
+	</div>
+	<button class='more-button'>Load more</button>
+
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	//https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
+	var n;
+		function displayData(data){
+			var photoArray = data["photos"]["photo"];
+			for (var i=0; i< photoArray.length; i++){
+				var photo = photoArray[i];
+				var imageUrl = "https://farm"+ photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_m.jpg";
+				var image = $("<img>");
+				image.attr("src", imageUrl);
+				$(".result").append(image);
+			}
+			// $(".result").append("<button class='more-button'>Load more</button>");
+		}
+		$(".search-button").on("click", function(){
+			console.log("click!");
+			var text = $(".search-input").val();
+			$(".result").empty();
+			$.ajax({
+				url: "https://api.flickr.com/services/rest/",
+				type: "GET",
+				dataType: "jsonp",
+				jsonp: "jsoncallback",
+				data: {
+					method: "flickr.photos.search",
+					text: text,
+					api_key: "0f22f51640ea8a231f4f054db5d14ef8",
+					format: "json"
+				},
+				success: function(data){
+					console.log("success",data);
+					displayData(data);
+					n =2;
+				},
+				error: function(xhr,status,message){
+					console.log("error", status,message);
+				}
+
+			});
+		})
+
+		$(".more-button").on("click", function(){
+			console.log("click!2");
+			var text = $(".search-input").val();
+			$.ajax({
+				url: "https://api.flickr.com/services/rest/",
+				type: "GET",
+				dataType: "jsonp",
+				jsonp: "jsoncallback",
+				data: {
+					method: "flickr.photos.search",
+					text: text,
+					api_key: "0f22f51640ea8a231f4f054db5d14ef8",
+					format: "json",
+					page: n
+				},
+				success: function(data){
+					console.log("success more",data);
+					console.log("page number:" + n);
+					displayData(data);
+					n+=1;
+					
+				},
+				error: function(xhr,status,message){
+					console.log("error", status,message);
+				}
+
+			});
+		})
+		$(window).scroll(function(){
+			if($(window).scrollTop()+$(window).height()== $(document).height())
+			{
+				$(".more-button").trigger("click");
+			}
+		});
+	</script>
+</body>
+</html>

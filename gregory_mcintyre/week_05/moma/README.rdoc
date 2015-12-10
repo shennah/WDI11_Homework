@@ -1,0 +1,21 @@
+
+Running the web server:
+
+		rails server
+
+Running the database prompt (like sqlite3):
+
+		rails db
+
+Running the Ruby prompt with Rails app loaded:
+
+		rails console
+
+Commands to run on the rails console to create some data and play with it:
+
+		Artist.create(name: "Salvador Dali", image_url: "", dob: "1904-05-11”)
+		Artwork.create(name: "Persistence of Memory", image_url: "", artist_id: 1)
+		Artwork.find(1)
+		Artwork.find(1).artist
+		Artist.find(1).artworks
+

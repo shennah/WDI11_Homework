@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+	// def normalize_phone_number(num)
+	//   result = /^1?(\d{10})$/.match(num)
+	//   if result
+	//     result.captures.first
+	//   end
+	// end
+
+	function normalizePhoneNumber(num) {
+		var result = /^1?(\d{10})$/.exec(num);
+		if (result) {
+			return result[1];
+		} else {
+			return null;
+		}
+	}
+
+	// 0123456789
+	console.log(normalizePhoneNumber("10123456789"));
+	console.log(normalizePhoneNumber("23434310123456789"));
+	</script>
+	
+</body>
+</html>

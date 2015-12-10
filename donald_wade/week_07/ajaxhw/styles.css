@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  /*border: 1px dotted magenta;*/
+}
+
+
+/* Rectangle 1: */
+
+
+/*background: #D8D8D8;
+border: 1px solid #979797;
+box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.50);*/
+
+button {
+  padding: 0.4rem;
+  background-color: yellow;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.50);
+}
+
+img:hover {
+  box-shadow: 3px 3px 24px 0px yellow, 3px 3px 48px 0px blue;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75), 0 0 128px 0px red;
+}
+
+img:active {
+  box-shadow: 0 0 128px 0px red;
+}
+
+input[type="text"] {
+  font-size: 1em;
+  font-family: monospace;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em;
+  text-align: center;
+  /*padding: 2em 6em 2em 8em;*/
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+button:active {
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 0.2rem;
+  margin: 1rem;
+  border: 1px solid black;
+  box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+body {
+  min-height: 500px;
+  background-image: url("images/white-parchment-paper-texture.jpg");
+}
+
+.form {
+  width: 80%;
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+
+.search-results {
+  width: 64%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-button {
+  font-family: cursive;
+  font-size: 0.8em;
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+}

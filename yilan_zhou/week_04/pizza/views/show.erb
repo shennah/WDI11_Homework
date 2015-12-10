@@ -1,0 +1,10 @@
+name: <%= @pizzas["name"] %><br>
+energy: <%= @pizzas["energy"] %><br>
+range: <%= @pizzas["range"] %><br>
+<p>
+<a href="/<%= @pizzas["id"] %>/edit">Edit</a>
+<a href="/">Back to list</a>
+<form action="/<%= @pizzas["id"] %>/delete" method="POST">
+	<input type="submit" value="Delete">
+</form>
+</p>

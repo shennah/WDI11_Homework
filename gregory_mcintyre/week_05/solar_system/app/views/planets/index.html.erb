@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>The Amazing Solar System</h1>
+
+<div class="planet-list">
+  <%= render partial: "planet_list_item", collection: @planets %>
+</div>
+
+<br>
+
+<p class="actions">
+<%= link_to 'New Planet', new_planet_path %>
+</p>

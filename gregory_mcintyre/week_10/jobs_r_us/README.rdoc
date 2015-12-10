@@ -1,0 +1,23 @@
+PLAN FOR THURSDAY
+
+* Add a User model + scaffolding
+	- first_name
+	- last_name
+	- dob
+	- dead
+
+* Add a Job model + scaffolding
+	- user_id
+	- company_name
+	- job_title
+
+* db:create db:migrate
+
+-------
+
+* Add a rake task
+* Use Faker to create lots of data
+
+* Add a search form
+
+- Make it actually work

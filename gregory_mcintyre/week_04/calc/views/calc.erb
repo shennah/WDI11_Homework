@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<form action="/">
+	<input type="number" name="x" placeholder="first value" value="<%= @x %>">
+	<input type="text" name="op" placeholder="*, /, +, -">
+	<input type="number" name="y" placeholder="second value">
+	<br>
+	<input type="submit">
+	</form>
+	
+	<% if @result %>
+	
+	<hr>
+	<h1><%= @result %></h1>
+
+	<% end %>
+
+</body>
+</html>

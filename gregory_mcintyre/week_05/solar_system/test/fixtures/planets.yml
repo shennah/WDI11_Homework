@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: planets
+#
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  image       :string
+#  num_moons   :integer
+#  mean_radius :float
+#  mass        :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  orbit       :float
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image: MyString
+  num_moons: 1
+  mean_radius: 1.5
+  mass: 1.5
+
+two:
+  name: MyString
+  image: MyString
+  num_moons: 1
+  mean_radius: 1.5
+  mass: 1.5
