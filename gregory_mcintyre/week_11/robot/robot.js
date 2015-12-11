@@ -68,13 +68,13 @@ robot.initBoard = function(el, cellWidth, window) {
   };
 
   setInterval(function(){
-    advanceRobot();
     var r = Math.random();
     if (r < 0.2) {
       robot.turn('left');
     } else if (r > 0.8) {
       robot.turn('right');
     }
+    advanceRobot();
     setRobotPosition();
   }, 200);
 };
