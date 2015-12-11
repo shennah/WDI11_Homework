@@ -33,18 +33,21 @@ robot.initBoard = function(el, cellWidth, window) {
     }
   };
 
-  var w = el.offsetWidth / cellWidth;
-  var h = el.offsetHeight / cellWidth;
-
-  window.addEventListener('resize', function() {
-    console.log('resize');
-    w = el.offsetWidth / cellWidth;
-    h = el.offsetHeight / cellWidth;
-  });
+  var board = {
+    w: 0,
+    h: 0,
+    resetSize: function() {
+      this.w = el.offsetWidth / cellWidth;
+      this.h = el.offsetHeight / cellWidth;
+    }
+  };
 
   var robotDiv = document.createElement('div');
   robotDiv.setAttribute('class', 'robot');
   el.appendChild(robotDiv);
+
+  board.resetSize(); // initial size
+  window.addEventListener('resize', board.resetSize); // reset on window resize
 
   var dirClass = [
     'east',
@@ -55,8 +58,8 @@ robot.initBoard = function(el, cellWidth, window) {
 
   var advanceRobot = function() {
     robot.advance();
-    robot.position[0] = Math.min(robot.position[0], w - 1);
-    robot.position[1] = Math.min(robot.position[1], h - 1);
+    robot.position[0] = Math.min(robot.position[0], board.w - 1);
+    robot.position[1] = Math.min(robot.position[1], board.h - 1);
     robot.position[0] = Math.max(0, robot.position[0]);
     robot.position[1] = Math.max(0, robot.position[1]);
   };
