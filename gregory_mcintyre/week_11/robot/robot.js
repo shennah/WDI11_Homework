@@ -42,6 +42,8 @@ robot.initBoard = function(el, cellWidth, window) {
     }
   };
 
+  el.setAttribute('class', 'robot-board');
+
   var robotDiv = document.createElement('div');
   robotDiv.setAttribute('class', 'robot');
   el.appendChild(robotDiv);
