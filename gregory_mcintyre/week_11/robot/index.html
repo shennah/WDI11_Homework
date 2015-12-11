@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Robot</title>
+    <script src="robot.js"></script>
+    <link href="robot.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="robot"></div>
+    <script>
+     window.onload = function() {
+       robot.initBoard(document.getElementById('robot'), 40, window);
+     }
+    </script>
+  </body>
+</html>
